@@ -1,12 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import styled from 'styled-components';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
 	accessToken: 'eq9wMNqM3KEyfjI4GXJf9BXIsapjQewWTb_mBH58yY0'
 });
 
-export async function getStaticProps({ params }) {
+const Title = styled.h1`
+	font-size: 50px;
+	color: ${({ theme }) => theme.colors.text};
+`;
+
+export async function getStaticProps() {
 	let data = await client.getContentTypes();
 	return {
 		props: { posts: data.items }
@@ -16,10 +22,11 @@ export async function getStaticProps({ params }) {
 const index = ({ posts }) => {
 	return (
 		<div>
+			<Title>hello</Title>
 			{posts.map((post) => (
 				<ul>
 					<li>
-						<Link href={`/${post.sys.id}`}>
+						<Link key={post.sys.id} href={`/${post.sys.id}`}>
 							<a>{post.name}</a>
 						</Link>
 					</li>
