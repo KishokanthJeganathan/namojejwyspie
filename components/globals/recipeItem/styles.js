@@ -8,6 +8,7 @@ export const RecipeItemWrapper = styled.div`
 		font-weight: ${setFontWeight.thin};
 	}
 	text-align: center;
+	padding: 1rem;
 `;
 
 export const Button = styled.a`

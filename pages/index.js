@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Background from '../components/globals/background/Background';
 import { v4 as uuidv4 } from 'uuid';
 import Section from '../components/globals/section/Section';
+import Carousel from '../components/globals/carousel/Carousel';
+import About from '../components/homepage/about/About';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -25,7 +27,10 @@ export async function getStaticProps() {
 const index = ({ posts, latest }) => {
 	return (
 		<React.Fragment>
-			<Section data={latest} />
+			<Carousel data={latest} />
+			<About />
+			{/* <Section data={latest} /> */}
+
 			{/* <ul>
 				{posts.map((post) => (
 					<li key={uuidv4()}>
