@@ -20,7 +20,8 @@ export const setPosition = {
 
 export const setFontSize = {
 	title: '3rem',
-	smallTitle: '2rem',
+	mediumTitle: '2rem',
+	smallTitle: '1.6rem',
 	normal: '1.1rem',
 	normalSmall: '1rem',
 	verySmall: '0.8rem'
@@ -31,7 +32,7 @@ const sizes = {
 	desktop: 992,
 	tablet: 768,
 	phone: 576,
-	small: 375
+	small: 320
 };
 
 // Iterate through the sizes and create a media template
