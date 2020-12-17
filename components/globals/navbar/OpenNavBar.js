@@ -4,6 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import NavigationLinks from '../constants/NavigationLinks';
 import Link from 'next/link';
 import * as S from './styles';
+import { v4 as uuidv4 } from 'uuid';
 
 const OpenNavBar = ({ toggle, toggleHandler }) => {
 	const { x } = useSpring({
@@ -29,8 +30,8 @@ const OpenNavBar = ({ toggle, toggleHandler }) => {
 			<nav>
 				<S.UL>
 					{NavigationLinks.map((link) => (
-						<li>
-							<Link href={link.link}>
+						<li key={uuidv4()}>
+							<Link href={`/${link.link}`}>
 								<a onClick={() => toggleHandler(toggle)} style={{ marginTop: '3rem' }}>
 									{link.destination}
 								</a>

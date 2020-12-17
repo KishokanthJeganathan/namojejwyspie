@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
-import styled from 'styled-components';
 import Background from '../components/globals/background/Background';
+import { v4 as uuidv4 } from 'uuid';
+import Section from '../components/globals/section/Section';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -10,25 +11,31 @@ const client = require('contentful').createClient({
 
 export async function getStaticProps() {
 	let data = await client.getContentTypes();
+
+	let latest = await client.getEntries({
+		limit: 4,
+		order: 'sys.createdAt'
+	});
+
 	return {
-		props: { posts: data.items }
+		props: { posts: data.items, latest: latest.items }
 	};
 }
 
-const index = ({ posts }) => {
+const index = ({ posts, latest }) => {
 	return (
-		<div>
-			<Background />
-			<ul>
+		<React.Fragment>
+			<Section data={latest} />
+			{/* <ul>
 				{posts.map((post) => (
-					<li key={post.sys.id}>
-						<Link key={post.sys.id} href={`/${post.sys.id}`}>
+					<li key={uuidv4()}>
+						<Link href={`/${post.sys.id}`}>
 							<a>{post.name}</a>
 						</Link>
 					</li>
 				))}
-			</ul>
-		</div>
+			</ul> */}
+		</React.Fragment>
 	);
 };
 

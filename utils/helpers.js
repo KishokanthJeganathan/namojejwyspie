@@ -21,7 +21,7 @@ export const setPosition = {
 export const setFontSize = {
 	title: '3rem',
 	mediumTitle: '2rem',
-	smallTitle: '1.6rem',
+	smallTitle: '1.4rem',
 	normal: '1.1rem',
 	normalSmall: '1rem',
 	verySmall: '0.8rem'
