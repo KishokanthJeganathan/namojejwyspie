@@ -1,9 +1,6 @@
 import React from 'react';
-import SectionWrapper from '../../globals/SectionWrapper';
 import Image from 'next/image';
-import RecipeItem from '../../globals/recipeItem/RecipeItem';
 import * as S from './styles';
-import styled from 'styled-components';
 import AboutContent from '../../globals/constants/AboutContent';
 import Link from 'next/link';
 import { Button } from '../../globals/recipeItem/styles';

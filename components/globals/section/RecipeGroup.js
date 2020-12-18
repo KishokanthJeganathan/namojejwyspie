@@ -2,13 +2,14 @@ import React from 'react';
 import RecipeItem from '../recipeItem/RecipeItem';
 import * as S from './styles';
 import { v4 as uuidv4 } from 'uuid';
-import SectionWrapper from '../SectionWrapper';
+import Link from 'next/link';
+import { IoIosArrowRoundForward } from 'react-icons/io';
 
-const Section = ({ title, data }) => {
+const RecipeGroup = ({ title, data, slug, fr }) => {
 	return (
-		<SectionWrapper>
+		<S.SectionWrapper>
 			{title && <h2>{title}</h2>}
-			<S.Content>
+			<S.Content fr={fr}>
 				{data.map((item) => (
 					<RecipeItem
 						key={uuidv4()}
@@ -19,8 +20,13 @@ const Section = ({ title, data }) => {
 					/>
 				))}
 			</S.Content>
-		</SectionWrapper>
+			<Link href={slug}>
+				<S.CTA>
+					SEE ALL {title} <IoIosArrowRoundForward />
+				</S.CTA>
+			</Link>
+		</S.SectionWrapper>
 	);
 };
 
-export default Section;
+export default RecipeGroup;

@@ -1,12 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
-import Background from '../components/globals/background/Background';
-import { v4 as uuidv4 } from 'uuid';
-import Section from '../components/globals/section/Section';
 import Carousel from '../components/globals/carousel/Carousel';
-import About from '../components/homepage/about/About';
-import styled from 'styled-components';
 import MobileAbout from '../components/homepage/about/MobileAbout';
+import BackgroundImage from '../components/globals/backgroundImage/BackgroundImage';
+import RecipeItem from '../components/globals/recipeItem/RecipeItem';
+import RecipeGroup from '../components/globals/section/RecipeGroup';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -17,6 +14,11 @@ export async function getStaticProps() {
 	let data = await client.getContentTypes();
 
 	let latest = await client.getEntries({
+		limit: 3,
+		order: 'sys.createdAt'
+	});
+
+	let deserts = await client.getEntries({
 		limit: 4,
 		order: 'sys.createdAt'
 	});
@@ -26,21 +28,26 @@ export async function getStaticProps() {
 	const about = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
 
 	return {
-		props: { posts: data.items, latest: latest.items, shopping: shopping.fields, about: about.fields }
+		props: {
+			posts: data.items,
+			latest: latest.items,
+			shopping: shopping.fields,
+			about: about.fields,
+			deserts: deserts.items
+		}
 	};
 }
 
-const Aside = styled.aside`
-	width: 20%;
-	padding-left: .5rem;
-	margin-left: .5rem;
-	float: right;
-`;
-const index = ({ posts, latest, shopping, about }) => {
+const index = ({ posts, latest, shopping, about, deserts }) => {
 	return (
 		<React.Fragment>
-			<Carousel data={latest} />
+			<BackgroundImage />
+			{/* <Carousel data={latest} /> */}
 			<MobileAbout />
+			<RecipeGroup data={latest} title="MAINS" slug="mains" fr="3" />
+			<RecipeGroup data={deserts} title="DESERTS" slug="deserts" fr="4" />
+			<RecipeGroup data={deserts} title="BEVERAGES" slug="deserts" fr="4" />
+			<RecipeGroup data={deserts} title="INGRIDIENTS" slug="deserts" fr="4" />
 
 			{/* <Section data={latest} /> */}
 

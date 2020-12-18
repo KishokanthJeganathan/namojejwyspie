@@ -4,12 +4,11 @@ import { media, setFontSize, setFontWeight } from '../../../utils/helpers';
 export const RecipeItemWrapper = styled.div`
 	h3 {
 		font-size: ${setFontSize.smallTitle};
-		text-align: center;
 		font-weight: ${setFontWeight.thin};
 	}
-	text-align: center;
-	padding: ${(props) => (props.padding ? props.padding : '1rem')};
-	border: ${(props) => (props.border ? props.border : '')};
+
+	padding: ${({ padding }) => (padding ? padding : '1rem')};
+	border: ${({ border }) => (border ? border : '')};
 `;
 
 export const Button = styled.a`
