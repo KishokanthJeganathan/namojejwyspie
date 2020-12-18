@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import SectionWrapper from '../SectionWrapper';
 
 const Section = ({ title, data }) => {
-	console.log(data);
 	return (
 		<SectionWrapper>
 			{title && <h2>{title}</h2>}

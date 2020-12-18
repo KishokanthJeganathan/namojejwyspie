@@ -6,6 +6,7 @@ import Section from '../components/globals/section/Section';
 import Carousel from '../components/globals/carousel/Carousel';
 import About from '../components/homepage/about/About';
 import styled from 'styled-components';
+import MobileAbout from '../components/homepage/about/MobileAbout';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -39,7 +40,7 @@ const index = ({ posts, latest, shopping, about }) => {
 	return (
 		<React.Fragment>
 			<Carousel data={latest} />
-			{/* <About blogPostData={shopping} about={about} /> */}
+			<MobileAbout />
 
 			{/* <Section data={latest} /> */}
 

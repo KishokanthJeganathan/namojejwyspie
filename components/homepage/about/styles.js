@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { media } from '../../../utils/helpers';
 
 export const Aside = styled.aside`
-	width: 20%;
 	margin: 1rem;
 	float: right;
 
-	${media.small`display:none`};
-	${media.tablet`display:block`};
+	${media.small`display:none;`};
+	${media.phone`display:block;width: 30%;`};
+	${media.desktop`width: 20%;`};
 `;
 
 export const About = styled.div`
@@ -20,14 +20,19 @@ export const About = styled.div`
 `;
 
 export const BlogPost = styled.div`
-	padding-bottom: 1rem;
+	padding-bottom: 1.5rem;
 	border: 1px solid black;
 
-	text-align: center;
-
+	a {
+		margin: 1rem;
+	}
 	p,
 	h3 {
 		padding: 0rem 1rem;
-		text-align: left;
 	}
+`;
+
+export const MobileAbout = styled.div`
+	${media.small`display:block;`};
+	${media.phone`display:none;`};
 `;
