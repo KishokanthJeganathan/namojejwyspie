@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }) {
 					<Component {...pageProps} />
 				</main>
 
-				<Footer />
+				{/* <Footer /> */}
 			</ThemeProvider>
 		</React.Fragment>
 	);

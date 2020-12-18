@@ -7,7 +7,7 @@ export const Aside = styled.aside`
 
 	${media.small`display:none;`};
 	${media.phone`display:block;width: 30%;`};
-	${media.desktop`width: 20%;`};
+	${media.desktop`width: 23%;`};
 `;
 
 export const About = styled.div`
