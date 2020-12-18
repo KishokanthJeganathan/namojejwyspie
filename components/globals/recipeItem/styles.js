@@ -8,7 +8,8 @@ export const RecipeItemWrapper = styled.div`
 		font-weight: ${setFontWeight.thin};
 	}
 	text-align: center;
-	padding: 1rem;
+	padding: ${(props) => (props.padding ? props.padding : '1rem')};
+	border: ${(props) => (props.border ? props.border : '')};
 `;
 
 export const Button = styled.a`

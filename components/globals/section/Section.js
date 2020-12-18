@@ -2,11 +2,12 @@ import React from 'react';
 import RecipeItem from '../recipeItem/RecipeItem';
 import * as S from './styles';
 import { v4 as uuidv4 } from 'uuid';
+import SectionWrapper from '../SectionWrapper';
 
 const Section = ({ title, data }) => {
 	console.log(data);
 	return (
-		<S.SectionWrapper>
+		<SectionWrapper>
 			{title && <h2>{title}</h2>}
 			<S.Content>
 				{data.map((item) => (
@@ -19,7 +20,7 @@ const Section = ({ title, data }) => {
 					/>
 				))}
 			</S.Content>
-		</S.SectionWrapper>
+		</SectionWrapper>
 	);
 };
 

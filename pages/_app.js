@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from '../components/globals/navbar/Navbar';
 import Footer from '../components/globals/footer/Footer';
 import './_app.css';
+import About from '../components/homepage/about/About';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
@@ -27,9 +28,11 @@ export default function App({ Component, pageProps }) {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 				<Navbar />
+				<About />
 				<main>
 					<Component {...pageProps} />
 				</main>
+
 				<Footer />
 			</ThemeProvider>
 		</React.Fragment>

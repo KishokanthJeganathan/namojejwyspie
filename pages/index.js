@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Section from '../components/globals/section/Section';
 import Carousel from '../components/globals/carousel/Carousel';
 import About from '../components/homepage/about/About';
+import styled from 'styled-components';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -19,16 +20,27 @@ export async function getStaticProps() {
 		order: 'sys.createdAt'
 	});
 
+	const shopping = await client.getEntry('54iIx9Pc2QlkJgo2SzyxT2');
+
+	const about = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
+
 	return {
-		props: { posts: data.items, latest: latest.items }
+		props: { posts: data.items, latest: latest.items, shopping: shopping.fields, about: about.fields }
 	};
 }
 
-const index = ({ posts, latest }) => {
+const Aside = styled.aside`
+	width: 20%;
+	padding-left: .5rem;
+	margin-left: .5rem;
+	float: right;
+`;
+const index = ({ posts, latest, shopping, about }) => {
 	return (
 		<React.Fragment>
 			<Carousel data={latest} />
-			<About />
+			{/* <About blogPostData={shopping} about={about} /> */}
+
 			{/* <Section data={latest} /> */}
 
 			{/* <ul>

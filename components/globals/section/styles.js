@@ -6,5 +6,3 @@ export const Content = styled.div`
 	grid-column-gap: 2rem;
 	justify-content: center;
 `;
-
-export const SectionWrapper = styled.section`padding: 2rem;`;
