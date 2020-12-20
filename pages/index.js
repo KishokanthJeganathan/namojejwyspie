@@ -41,13 +41,10 @@ export async function getStaticProps() {
 const index = ({ posts, latest, shopping, about, deserts }) => {
 	return (
 		<React.Fragment>
-			<BackgroundImage />
+			<BackgroundImage src="/Srilankan Cooking.jpg" />
 			{/* <Carousel data={latest} /> */}
 			<MobileAbout />
 			<RecipeGroup data={latest} title="MAINS" slug="mains" fr="3" />
-			<RecipeGroup data={deserts} title="DESERTS" slug="deserts" fr="4" />
-			<RecipeGroup data={deserts} title="BEVERAGES" slug="deserts" fr="4" />
-			<RecipeGroup data={deserts} title="INGRIDIENTS" slug="deserts" fr="4" />
 
 			{/* <Section data={latest} /> */}
 

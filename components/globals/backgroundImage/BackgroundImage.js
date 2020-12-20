@@ -1,12 +1,15 @@
 import React from 'react';
 import * as S from './styles';
 
-const BackgroundImage = () => {
+const BackgroundImage = ({ src }) => {
 	return (
 		<S.Relative>
-			<S.ImageHolder layout="fill" src="/Srilankan Cooking.jpg" />
+			<S.ImageHolder layout="fill" src={src} />
 			<S.Content>
-				<h1>Welcome to Namojej Wyspie!</h1>
+				<span>
+					<h1>A GUIDE TO SRI LANKA'S CULINARY DELIGHTS AND HISTORY</h1>
+					<p>A GUIDE TO SRI LANKA'S CULINARY DELIGHTS AND HISTORY</p>
+				</span>
 			</S.Content>
 		</S.Relative>
 	);
