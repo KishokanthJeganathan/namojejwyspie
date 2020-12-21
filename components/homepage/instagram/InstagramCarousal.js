@@ -2,11 +2,16 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import RecipeItem from '../recipeItem/RecipeItem';
 import { v4 as uuidv4 } from 'uuid';
+import Image from 'next/image';
+import styled from 'styled-components';
 
-const Carousel = ({ data }) => {
+const Div = styled.div`padding: 1rem;`;
+
+const InstagramCarousal = ({ data }) => {
+	console.log(data);
 	let settings = {
+		margin: '1rem',
 		dots: true,
 		infinite: false,
 		speed: 500,
@@ -41,7 +46,16 @@ const Carousel = ({ data }) => {
 			}
 		]
 	};
-	return <Slider {...settings}>hey</Slider>;
+
+	return (
+		<Slider {...settings}>
+			{data.posts.map((post) => (
+				<div style={{ margin: '1rem' }}>
+					<Image src={post.imageUrl} height="500" width="500" key={uuidv4()} />
+				</div>
+			))}
+		</Slider>
+	);
 };
 
-export default Carousel;
+export default InstagramCarousal;

@@ -1,12 +1,12 @@
 import React from 'react';
-import Carousel from '../components/globals/carousel/Carousel';
-import MobileAbout from '../components/homepage/about/MobileAbout';
 import BackgroundImage from '../components/globals/backgroundImage/BackgroundImage';
-import RecipeItem from '../components/globals/recipeItem/RecipeItem';
 import RecipeGroup from '../components/globals/recipeGroup/RecipeGroup';
 import Newsletter from '../components/globals/newsletter/Newsletter';
-import About from '../components/homepage/about/About';
 import Latest from '../components/homepage/latest/Latest';
+import InstagramCarousal from '../components/homepage/instagram/InstagramCarousal';
+import Carousel from '../components/globals/carousel/Carousel';
+
+const userInstagram = require('user-instagram');
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -19,18 +19,19 @@ export async function getStaticProps() {
 		order: 'sys.createdAt'
 	});
 
-	const About = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
+	const about = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
+
+	const insta = await userInstagram('namojejwyspie');
 
 	return {
 		props: {
 			latest: latest.items,
-			about: About.fields
+			about: about.fields,
+			insta: insta
 		}
 	};
 }
-
-const index = ({ latest, about }) => {
-	console.log(about);
+const index = ({ latest, about, insta }) => {
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />
@@ -54,6 +55,8 @@ const index = ({ latest, about }) => {
 				subtitle="I bothered my boyfriend untill he gave me his version of the best things to do in Sri Lanka for a 2 weeks"
 			/>
 			<RecipeGroup data={latest} fr="4" title="EVERYDAY SRI LANKAN DRINKS" slug="hey" />
+			<InstagramCarousal data={insta} />
+
 			{/* <ul>
 				{posts.map((post) => (
 					<li key={uuidv4()}>
