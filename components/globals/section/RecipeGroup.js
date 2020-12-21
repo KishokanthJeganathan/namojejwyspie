@@ -20,11 +20,13 @@ const RecipeGroup = ({ title, data, slug, fr }) => {
 					/>
 				))}
 			</S.Content>
-			<Link href={slug}>
-				<S.CTA>
-					SEE ALL {title} <IoIosArrowRoundForward />
-				</S.CTA>
-			</Link>
+			{slug && (
+				<Link href={slug}>
+					<S.CTA>
+						SEE ALL {title} <IoIosArrowRoundForward />
+					</S.CTA>
+				</Link>
+			)}
 		</S.SectionWrapper>
 	);
 };

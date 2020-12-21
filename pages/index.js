@@ -4,6 +4,7 @@ import MobileAbout from '../components/homepage/about/MobileAbout';
 import BackgroundImage from '../components/globals/backgroundImage/BackgroundImage';
 import RecipeItem from '../components/globals/recipeItem/RecipeItem';
 import RecipeGroup from '../components/globals/section/RecipeGroup';
+import Newsletter from '../components/globals/newsletter/Newsletter';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -11,43 +12,28 @@ const client = require('contentful').createClient({
 });
 
 export async function getStaticProps() {
-	let data = await client.getContentTypes();
-
 	let latest = await client.getEntries({
-		limit: 3,
-		order: 'sys.createdAt'
-	});
-
-	let deserts = await client.getEntries({
 		limit: 4,
 		order: 'sys.createdAt'
 	});
 
-	const shopping = await client.getEntry('54iIx9Pc2QlkJgo2SzyxT2');
-
-	const about = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
-
 	return {
 		props: {
-			posts: data.items,
-			latest: latest.items,
-			shopping: shopping.fields,
-			about: about.fields,
-			deserts: deserts.items
+			latest: latest.items
 		}
 	};
 }
 
-const index = ({ posts, latest, shopping, about, deserts }) => {
+const index = ({ latest }) => {
+	console.log(latest);
 	return (
 		<React.Fragment>
-			<BackgroundImage />
+			<RecipeGroup data={latest} fr="4" />
+			<Newsletter />
+
+			{/* <BackgroundImage /> */}
 			{/* <Carousel data={latest} /> */}
-			<MobileAbout />
-			<RecipeGroup data={latest} title="MAINS" slug="mains" fr="3" />
-			<RecipeGroup data={deserts} title="DESERTS" slug="deserts" fr="4" />
-			<RecipeGroup data={deserts} title="BEVERAGES" slug="deserts" fr="4" />
-			<RecipeGroup data={deserts} title="INGRIDIENTS" slug="deserts" fr="4" />
+			{/* <MobileAbout /> */}
 
 			{/* <Section data={latest} /> */}
 

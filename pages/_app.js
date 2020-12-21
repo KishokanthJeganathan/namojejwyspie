@@ -4,6 +4,7 @@ import Navbar from '../components/globals/navbar/Navbar';
 import Footer from '../components/globals/footer/Footer';
 import './_app.css';
 import About from '../components/homepage/about/About';
+import { media } from '../utils/helpers';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
@@ -12,6 +13,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
+	${media.small`
+	max-width: 100vw;
+	margin:auto;`}
+	${media.desktop`
+	max-width: 75vw;
+	margin:auto;`}
   }
 `;
 
@@ -28,7 +35,7 @@ export default function App({ Component, pageProps }) {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 				<Navbar />
-				<About />
+				{/* <About /> */}
 				<main>
 					<Component {...pageProps} />
 				</main>

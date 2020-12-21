@@ -3,8 +3,6 @@ import { media, setFontSize } from '../../../utils/helpers';
 
 export const Navbar = styled.header`
 	display: grid;
-	border-bottom: 1px solid gray;
-
 	span {
 		display: grid;
 		align-content: center;
