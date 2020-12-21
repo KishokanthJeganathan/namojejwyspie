@@ -11,7 +11,7 @@ export const Aside = styled.aside`
 `;
 
 export const About = styled.div`
-	border: 1px solid black;
+	border: 1px solid #d6d6d6;
 	margin-bottom: 2rem;
 	p,
 	h3 {
@@ -21,7 +21,7 @@ export const About = styled.div`
 
 export const BlogPost = styled.div`
 	padding-bottom: 1.5rem;
-	border: 1px solid black;
+	border: 1px solid #d6d6d6;
 
 	a {
 		margin: 1rem;

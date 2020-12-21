@@ -1,6 +1,5 @@
 import React from 'react';
 import AboutContent from '../../globals/constants/AboutContent';
-import SectionWrapper from '../../globals/SectionWrapper';
 import Image from 'next/image';
 import * as S from './styles';
 

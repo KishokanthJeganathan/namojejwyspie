@@ -4,10 +4,11 @@ import * as S from './styles';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { IoIosArrowRoundForward } from 'react-icons/io';
+import { Button } from '../recipeItem/styles';
 
-const RecipeGroup = ({ title, data, slug, fr }) => {
+const RecipeGroup = ({ title, data, slug, fr, padding }) => {
 	return (
-		<S.SectionWrapper>
+		<S.SectionWrapper padding={padding}>
 			{title && <h2>{title}</h2>}
 			<S.Content fr={fr}>
 				{data.map((item) => (
@@ -23,7 +24,7 @@ const RecipeGroup = ({ title, data, slug, fr }) => {
 			{slug && (
 				<Link href={slug}>
 					<S.CTA>
-						SEE ALL {title} <IoIosArrowRoundForward />
+						SEE THE REST <IoIosArrowRoundForward style={{ fontSize: '1.4rem' }} />
 					</S.CTA>
 				</Link>
 			)}

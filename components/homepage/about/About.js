@@ -1,18 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import * as S from './styles';
-import AboutContent from '../../globals/constants/AboutContent';
 import Link from 'next/link';
 import { Button } from '../../globals/recipeItem/styles';
 
-const About = () => {
-	console.log(AboutContent);
+const About = ({ about }) => {
 	return (
 		<S.Aside>
 			<S.About>
 				<Image src="/about_image.jpg" width={500} height={500} />
 				<h3>About Me</h3>
-				<p>{AboutContent[0].content}</p>
+				<p>{about.content}</p>
 			</S.About>
 
 			<S.BlogPost>

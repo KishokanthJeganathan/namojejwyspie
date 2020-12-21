@@ -3,7 +3,7 @@ import { media, setFontSize, setFontWeight } from '../../../utils/helpers';
 
 export const RecipeItemWrapper = styled.div`
 	h3 {
-		font-size: ${setFontSize.smallTitle};
+		font-size: ${setFontSize.normal};
 		font-weight: ${setFontWeight.thin};
 	}
 

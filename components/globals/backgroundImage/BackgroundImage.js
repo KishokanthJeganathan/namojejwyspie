@@ -1,12 +1,22 @@
+import Link from 'next/link';
 import React from 'react';
+import { Button } from '../recipeItem/styles';
 import * as S from './styles';
 
-const BackgroundImage = () => {
+const BackgroundImage = ({ src, title, subtitle }) => {
 	return (
 		<S.Relative>
-			<S.ImageHolder layout="fill" src="/Srilankan Cooking.jpg" />
+			<S.ImageHolder layout="fill" src={src} />
 			<S.Content>
-				<h1>Welcome to Namojej Wyspie!</h1>
+				<span>
+					<strong>
+						<p>{title}</p>
+					</strong>
+					<p>{subtitle}</p>
+					<Link href="">
+						<Button>Read</Button>
+					</Link>
+				</span>
 			</S.Content>
 		</S.Relative>
 	);

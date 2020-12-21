@@ -15,7 +15,11 @@ export const setFontWeight = {
 export const setPosition = {
 	center: `display: flex;
 	justify-content:center;
-	align-items:center;`
+	align-items:center;`,
+	verticalCenter: `display: flex;
+	justify-content:flex-start;
+	align-items:flex-start;
+	flex-direction: column`
 };
 
 export const setFontSize = {
