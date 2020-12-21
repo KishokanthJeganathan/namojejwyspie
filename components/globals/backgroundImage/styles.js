@@ -19,9 +19,11 @@ export const Content = styled.div`
 
 	span {
 		background-color: white;
-		padding: 2rem;
-		text-align: center;
+		padding: 2rem 2rem;
+		text-align:center;
 		${media.small`width: 60vw;`};
-		${media.desktop`width: 40vw;`};
-	}
+		${media.desktop`
+		width: 40vw;
+		p{padding:0rem 2rem;}
+		`};
 `;

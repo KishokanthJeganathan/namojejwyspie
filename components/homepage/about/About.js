@@ -1,29 +1,13 @@
 import React from 'react';
-import Image from 'next/image';
 import * as S from './styles';
-import AboutContent from '../../globals/constants/AboutContent';
-import Link from 'next/link';
-import { Button } from '../../globals/recipeItem/styles';
 
 const About = () => {
-	console.log(AboutContent);
 	return (
-		<S.Aside>
-			<S.About>
-				<Image src="/about_image.jpg" width={500} height={500} />
-				<h3>About Me</h3>
-				<p>{AboutContent[0].content}</p>
-			</S.About>
+		<S.AboutWrapper>
+			<div>image</div>
 
-			<S.BlogPost>
-				<Image src="/spices-in-sri-lanka (1).jpg" width={500} height={500} />
-				<h3>Looking for a place to buy Sri Lankan spices?</h3>
-				<p>I have summarised the most cost effective places for you to buy Sri Lankan ingridients in Poland</p>
-				<Link href="">
-					<Button>Read</Button>
-				</Link>
-			</S.BlogPost>
-		</S.Aside>
+			<div>text</div>
+		</S.AboutWrapper>
 	);
 };
 

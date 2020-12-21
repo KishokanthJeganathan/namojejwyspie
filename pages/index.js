@@ -1,9 +1,6 @@
 import React from 'react';
-import Carousel from '../components/globals/carousel/Carousel';
-import MobileAbout from '../components/homepage/about/MobileAbout';
 import BackgroundImage from '../components/globals/backgroundImage/BackgroundImage';
-import RecipeItem from '../components/globals/recipeItem/RecipeItem';
-import RecipeGroup from '../components/globals/section/RecipeGroup';
+import About from '../components/homepage/about/About';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -42,9 +39,9 @@ const index = ({ posts, latest, shopping, about, deserts }) => {
 	return (
 		<React.Fragment>
 			<BackgroundImage src="/Srilankan Cooking.jpg" />
-			{/* <Carousel data={latest} /> */}
-			<MobileAbout />
-			<RecipeGroup data={latest} title="MAINS" slug="mains" fr="3" />
+			<About />
+
+			{/* <RecipeGroup data={latest} title="MAINS" slug="mains" fr="3" /> */}
 
 			{/* <Section data={latest} /> */}
 

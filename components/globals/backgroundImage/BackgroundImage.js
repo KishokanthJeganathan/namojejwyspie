@@ -8,7 +8,10 @@ const BackgroundImage = ({ src }) => {
 			<S.Content>
 				<span>
 					<h1>A GUIDE TO SRI LANKA'S CULINARY DELIGHTS AND HISTORY</h1>
-					<p>A GUIDE TO SRI LANKA'S CULINARY DELIGHTS AND HISTORY</p>
+					<p>
+						Weekly blogposts on how to make local mains, deserts and drinks using ingridients available in
+						Poland
+					</p>
 				</span>
 			</S.Content>
 		</S.Relative>
