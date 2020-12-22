@@ -3,7 +3,6 @@ import React from 'react';
 import Navbar from '../components/globals/navbar/Navbar';
 import Footer from '../components/globals/footer/Footer';
 import './_app.css';
-import About from '../components/homepage/about/About';
 import { media } from '../utils/helpers';
 
 const GlobalStyle = createGlobalStyle`
@@ -35,12 +34,10 @@ export default function App({ Component, pageProps }) {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 				<Navbar />
-				{/* <About /> */}
 				<main>
 					<Component {...pageProps} />
 				</main>
-
-				{/* <Footer /> */}
+				<Footer />
 			</ThemeProvider>
 		</React.Fragment>
 	);
