@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 	let data = await client.getEntries();
 	return {
 		paths: data.items.map((path) => ({
-			params: { category: path.fields.type }
+			params: { category: path.sys.contentType.sys.id }
 		})),
 		fallback: false
 	};

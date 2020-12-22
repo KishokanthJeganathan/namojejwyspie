@@ -32,6 +32,7 @@ export async function getStaticProps() {
 	};
 }
 const index = ({ latest, about, insta }) => {
+	console.log(latest);
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />

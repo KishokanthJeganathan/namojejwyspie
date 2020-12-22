@@ -7,9 +7,10 @@ const client = require('contentful').createClient({
 
 export async function getStaticPaths() {
 	let data = await client.getEntries();
+
 	return {
 		paths: data.items.map((path) => ({
-			params: { category: path.fields.type, slug: path.fields.slug }
+			params: { category: path.sys.contentType.sys.id, slug: `${data ? path.fields.slug : ''}` }
 		})),
 		fallback: false
 	};
@@ -22,7 +23,7 @@ export async function getStaticProps({ params }) {
 	});
 
 	return {
-		props: { post: data.items[0].fields }
+		props: { post: data.items }
 	};
 }
 
