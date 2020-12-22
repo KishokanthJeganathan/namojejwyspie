@@ -19,9 +19,6 @@ export const Content = styled.div`
 	grid-template-columns:1fr 1fr;
 	`};
 	${media.phone`
-	grid-template-columns:1fr 1fr;
-	`};
-	${media.desktop`
 	grid-template-columns: ${(props) => `repeat(${props.fr},1fr)`};
 	`};
 `;
@@ -33,5 +30,6 @@ export const CTA = styled.a`
 	font-weight: bold;
 	&:hover {
 		text-decoration: underline;
+		cursor: pointer;
 	}
 `;

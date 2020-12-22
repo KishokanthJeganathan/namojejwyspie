@@ -6,10 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Image from 'next/image';
 import styled from 'styled-components';
 
-const Div = styled.div`padding: 1rem;`;
-
 const InstagramCarousal = ({ data }) => {
-	console.log(data);
 	let settings = {
 		margin: '1rem',
 		dots: true,

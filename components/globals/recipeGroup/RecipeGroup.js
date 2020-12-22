@@ -4,7 +4,6 @@ import * as S from './styles';
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { IoIosArrowRoundForward } from 'react-icons/io';
-import { Button } from '../recipeItem/styles';
 
 const RecipeGroup = ({ title, data, slug, fr, padding }) => {
 	return (
@@ -17,7 +16,7 @@ const RecipeGroup = ({ title, data, slug, fr, padding }) => {
 						title={item.fields.title}
 						src={`https://${item.fields.mainImage.fields.file.url}`}
 						alt={item.fields.mainImage.fields.file.fileName}
-						slug={`/${item.fields.type}/${item.fields.slug}`}
+						slug={`/${item.sys.contentType.sys.id}/${item.fields.slug}`}
 					/>
 				))}
 			</S.Content>

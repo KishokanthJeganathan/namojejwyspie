@@ -27,7 +27,6 @@ export async function getStaticProps({ params }) {
 }
 
 const index = ({ posts }) => {
-	console.log(posts);
 	return (
 		<div>
 			{posts.map((post) => (

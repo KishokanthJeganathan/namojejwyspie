@@ -28,8 +28,6 @@ export async function getStaticProps({ params }) {
 }
 
 const recipe = ({ post }) => {
-	console.log(post);
-
 	return <div>I am recipe page</div>;
 };
 

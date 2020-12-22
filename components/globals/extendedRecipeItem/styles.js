@@ -4,11 +4,9 @@ import { media, setFontSize, setPosition } from '../../../utils/helpers';
 export const Wrapper = styled.div`
 	display: grid;
 	margin-top: 2rem;
-	padding-bottom: 2rem;
-	border-bottom: 1px solid #d6d6d6;
 
 	h5 {
-		font-size: ${setFontSize.smallTitle};
+		font-size: ${setFontSize.normal};
 	}
 
 	${media.small`width: 100%;
