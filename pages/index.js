@@ -31,7 +31,7 @@ const index = ({ latest }) => {
 				title="Is Sri Lankan cuisine different from Indian cuisine?"
 				subtitle="Yes! Very much so and that is why I dedicated an entire article to talk about how unique it is!"
 			/>
-			<Latest data={latest} about="" slug="mains" />
+			<Latest data={latest} slug="mains" />
 			<BackgroundImage
 				src="/ingridients.jpg"
 				title="Looking for a place to buy the ingridients for Sri Lankan dishes in Poland?"
