@@ -17,7 +17,8 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			latest: latest.items
+			latest: latest.items,
+			revalidate: 1
 		}
 	};
 }
