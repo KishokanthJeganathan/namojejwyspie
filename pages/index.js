@@ -29,7 +29,7 @@ const index = ({ latest }) => {
 			<BackgroundImage
 				src="/food.jpg"
 				title="Is Sri Lankan cuisine different from Indian cuisine?"
-				subtitle="Yes! Very much so and that is why I dedicated an entire article to talk about how unique it is!"
+				subtitle="Yes! Very much so and that is why I dedicated an entire article to talk how unique it is!"
 			/>
 			<Latest data={latest} slug="mains" />
 			<BackgroundImage
