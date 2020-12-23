@@ -10,10 +10,10 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 
 export const SectionWrapper = styled.section`padding: 1rem;`;
 
-const Latest = ({ data, about, slug }) => {
+const Latest = ({ data, slug }) => {
 	return (
 		<SectionWrapper>
-			<About about={about} />
+			<About />
 			<h2>MAINS SRI LANKANS LOVE TO EAT EVERYDAY</h2>
 			{data.map((item) => (
 				<ExtendedRecipeItem
