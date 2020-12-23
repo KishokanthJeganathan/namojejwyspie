@@ -14,7 +14,7 @@ const RecipeGroup = ({ title, data, slug, fr, padding }) => {
 					<RecipeItem
 						key={uuidv4()}
 						title={item.fields.title}
-						src={`https://${item.fields.mainImage.fields.file.url}`}
+						src={`https:${item.fields.mainImage.fields.file.url}`}
 						alt={item.fields.mainImage.fields.file.fileName}
 						slug={`/${item.sys.contentType.sys.id}/${item.fields.slug}`}
 					/>

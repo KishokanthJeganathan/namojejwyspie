@@ -7,7 +7,7 @@ import { Button } from '../recipeItem/styles';
 const ExtendedRecipeItem = ({ title, src, alt, slug, padding, border }) => {
 	return (
 		<S.Wrapper>
-			<Image src={src} alt={alt} width={1000} height={1200} />
+			<Image src={`https:${src}`} alt={alt} width={1000} height={1200} />
 			<S.Content>
 				<h5>BEST VEGAN MASHED POTATOES</h5>
 				<p>
