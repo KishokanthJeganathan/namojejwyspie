@@ -15,16 +15,13 @@ export async function getStaticProps() {
 		order: 'sys.createdAt'
 	});
 
-	const about = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
-
 	return {
 		props: {
-			latest: latest.items,
-			about: `${about ? about.fields : ''}`
+			latest: latest.items
 		}
 	};
 }
-const index = ({ latest, about }) => {
+const index = ({ latest }) => {
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />
@@ -34,7 +31,7 @@ const index = ({ latest, about }) => {
 				title="Is Sri Lankan cuisine different from Indian cuisine?"
 				subtitle="Yes! Very much so and that is why I dedicated an entire article to talk about how unique it is!"
 			/>
-			<Latest data={latest} about={about} slug="mains" />
+			<Latest data={latest} about="" slug="mains" />
 			<BackgroundImage
 				src="/ingridients.jpg"
 				title="Looking for a place to buy the ingridients for Sri Lankan dishes in Poland?"

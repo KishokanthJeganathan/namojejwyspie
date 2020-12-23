@@ -10,7 +10,11 @@ const About = ({ about }) => {
 			<S.About>
 				<Image src="/about_image.jpg" width={500} height={500} />
 				<h3>About Me</h3>
-				<p>{about.content}</p>
+				<p>
+					Jestem Michalina i pisze bloga o Sri Lance. Mój chłopak pochodzi ze Sri Lanki i to dzieki niemu
+					zainteresowałam sie kulturą, kuchnią i historią tego kraju. Mieszkamy i pracujemy w Poznaniu. Ja na
+					co dzień pracuję w ochronie zdrowia, a blog prowadzę hobbystycznie
+				</p>
 			</S.About>
 
 			<S.BlogPost>
