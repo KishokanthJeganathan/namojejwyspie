@@ -11,7 +11,7 @@ export async function getStaticPaths() {
 	let data = await client.getEntries();
 	return {
 		paths: data.items.map((path) => ({
-			params: { category: `${data ? path.sys.contentType.sys.id : ''}` }
+			params: { category: path.sys.contentType.sys.id }
 		})),
 		fallback: false
 	};
