@@ -47,7 +47,6 @@ const index = ({ latest, about }) => {
 				subtitle="I bothered my boyfriend untill he gave me his version of the best things to do in Sri Lanka for a 2 weeks"
 			/>
 			<RecipeGroup data={latest} fr="4" title="EVERYDAY SRI LANKAN DRINKS" slug="drinks" />
-			{/* <InstagramCarousal data={insta} /> */}
 		</React.Fragment>
 	);
 };
