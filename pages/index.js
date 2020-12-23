@@ -20,8 +20,7 @@ export async function getStaticProps() {
 	return {
 		props: {
 			latest: latest.items,
-			about: about.fields,
-			insta: insta
+			about: about.fields
 		}
 	};
 }
