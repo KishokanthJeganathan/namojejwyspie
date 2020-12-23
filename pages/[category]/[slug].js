@@ -41,6 +41,8 @@ const recipe = ({ post }) => {
 		title
 	} = post[0].fields;
 
+	console.log(post);
+
 	const options = {
 		renderMark: {
 			[MARKS.BOLD]: (text) => <strong>{text}</strong>
@@ -48,7 +50,14 @@ const recipe = ({ post }) => {
 		renderNode: {
 			[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
 			'embedded-asset-block': (node) => {
-				return <Image src={`https:${node.data.target.fields.file.url}`} alt="" width={500} height={500} />;
+				return (
+					<Image
+						src={`https:${node.data.target.fields.file.url}`}
+						alt=""
+						width={node.data.target.fields.file.details.image.width}
+						height={node.data.target.fields.file.details.image.height}
+					/>
+				);
 			},
 			[INLINES.HYPERLINK]: (node) => {
 				if (node.data.uri.indexOf('youtube.com') !== -1) {
@@ -79,8 +88,6 @@ const recipe = ({ post }) => {
 		}
 	};
 
-	console.log(post);
-	console.log(alt);
 	return (
 		<S.Section>
 			<BackgroundImage src={`https:${url}`} title={title} />
