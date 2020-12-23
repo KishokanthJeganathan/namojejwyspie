@@ -23,7 +23,7 @@ export async function getStaticProps({ params }) {
 	});
 
 	return {
-		props: { posts: data.items }
+		props: { posts: `${data ? data.items : ''}` }
 	};
 }
 
