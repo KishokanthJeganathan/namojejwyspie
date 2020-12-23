@@ -13,7 +13,7 @@ export const SectionWrapper = styled.section`padding: 1rem;`;
 const Latest = ({ data, slug }) => {
 	return (
 		<SectionWrapper>
-			<About />
+			{/* <About /> */}
 			<h2>MAINS SRI LANKANS LOVE TO EAT EVERYDAY</h2>
 			{data.map((item) => (
 				<ExtendedRecipeItem
