@@ -1,5 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
+import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
+import RecipeGroup from '../../components/globals/recipeGroup/RecipeGroup';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -28,17 +29,14 @@ export async function getStaticProps({ params }) {
 
 const index = ({ posts }) => {
 	return (
-		<div>
-			{posts.map((post) => (
-				<ul>
-					<li>
-						<Link href={`/${post.fields.type}/${post.fields.slug}`}>
-							<a>{post.fields.title}</a>
-						</Link>
-					</li>
-				</ul>
-			))}
-		</div>
+		<React.Fragment>
+			<BackgroundImage
+				src="/ingridients.jpg"
+				title="Looking for a place to buy the ingridients for Sri Lankan dishes in Poland?"
+				subtitle="You are in luck because I have a post dedicated only for this!"
+			/>
+			<RecipeGroup data={posts} fr="4" />
+		</React.Fragment>
 	);
 };
 

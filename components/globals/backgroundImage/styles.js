@@ -4,7 +4,6 @@ import Image from 'next/image';
 
 export const Relative = styled.section`
 	position: relative;
-
 	margin: 0rem;
 	width: 100%;
 `;

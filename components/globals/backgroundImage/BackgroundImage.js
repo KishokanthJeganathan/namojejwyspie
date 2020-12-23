@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '../recipeItem/styles';
 import * as S from './styles';
 
-const BackgroundImage = ({ src, title, subtitle }) => {
+const BackgroundImage = ({ src, title, subtitle, slug }) => {
 	return (
 		<S.Relative>
 			<S.ImageHolder layout="fill" src={src} />
@@ -13,9 +13,11 @@ const BackgroundImage = ({ src, title, subtitle }) => {
 						<p>{title}</p>
 					</strong>
 					<p>{subtitle}</p>
-					<Link href="">
-						<Button>Read</Button>
-					</Link>
+					{slug && (
+						<Link href={slug}>
+							<Button>Read</Button>
+						</Link>
+					)}
 				</span>
 			</S.Content>
 		</S.Relative>
