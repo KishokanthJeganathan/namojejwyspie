@@ -23,11 +23,13 @@ export async function getStaticProps({ params }) {
 	});
 
 	return {
-		props: { posts: `${data ? data.items : ''}` }
+		props: { posts: data.items }
 	};
 }
 
 const index = ({ posts }) => {
+	console.log(posts);
+
 	return (
 		<React.Fragment>
 			<BackgroundImage

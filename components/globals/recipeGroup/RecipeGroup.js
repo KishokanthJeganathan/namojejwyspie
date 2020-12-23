@@ -10,16 +10,15 @@ const RecipeGroup = ({ title, data, slug, fr, padding }) => {
 		<S.SectionWrapper padding={padding}>
 			{title && <h2>{title}</h2>}
 			<S.Content fr={fr}>
-				{data &&
-					data.map((item) => (
-						<RecipeItem
-							key={uuidv4()}
-							title={item.fields.title}
-							src={`https://${item.fields.mainImage.fields.file.url}`}
-							alt={item.fields.mainImage.fields.file.fileName}
-							slug={`/${item.sys.contentType.sys.id}/${item.fields.slug}`}
-						/>
-					))}
+				{data.map((item) => (
+					<RecipeItem
+						key={uuidv4()}
+						title={item.fields.title}
+						src={`https://${item.fields.mainImage.fields.file.url}`}
+						alt={item.fields.mainImage.fields.file.fileName}
+						slug={`/${item.sys.contentType.sys.id}/${item.fields.slug}`}
+					/>
+				))}
 			</S.Content>
 			{slug && (
 				<Link href={slug}>
