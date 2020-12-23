@@ -4,7 +4,7 @@ import * as S from './styles';
 import Link from 'next/link';
 import { Button } from '../../globals/recipeItem/styles';
 
-const About = ({ about }) => {
+const About = () => {
 	return (
 		<S.Aside>
 			<S.About>
