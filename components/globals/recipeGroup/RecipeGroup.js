@@ -20,6 +20,7 @@ const RecipeGroup = ({ title, data, slug, fr, padding }) => {
 					/>
 				))}
 			</S.Content>
+
 			{slug && (
 				<Link href={slug}>
 					<S.CTA>
