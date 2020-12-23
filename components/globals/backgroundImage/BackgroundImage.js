@@ -8,17 +8,19 @@ const BackgroundImage = ({ src, title, subtitle, slug }) => {
 		<S.Relative>
 			<S.ImageHolder layout="fill" src={src} />
 			<S.Content>
-				<span>
-					<strong>
-						<p>{title}</p>
-					</strong>
-					<p>{subtitle}</p>
-					{slug && (
-						<Link href={slug}>
-							<Button>Read</Button>
-						</Link>
-					)}
-				</span>
+				{title && (
+					<span>
+						<strong>
+							<p>{title}</p>
+						</strong>
+						<p>{subtitle}</p>
+						{slug && (
+							<Link href={slug}>
+								<Button>Read</Button>
+							</Link>
+						)}
+					</span>
+				)}
 			</S.Content>
 		</S.Relative>
 	);

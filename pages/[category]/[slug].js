@@ -1,5 +1,9 @@
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import Image from 'next/image';
+import * as S from '../../components/recipePage/styles';
+import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -29,8 +33,62 @@ export async function getStaticProps({ params }) {
 }
 
 const recipe = ({ post }) => {
+	const {
+		content,
+		date,
+		mainImage: { fields: { file: { url }, title: alt } },
+		metaDescription,
+		title
+	} = post[0].fields;
+
+	const options = {
+		renderMark: {
+			[MARKS.BOLD]: (text) => <strong>{text}</strong>
+		},
+		renderNode: {
+			[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+			'embedded-asset-block': (node) => {
+				return <Image src={`https:${node.data.target.fields.file.url}`} alt="" width={500} height={500} />;
+			},
+			[INLINES.HYPERLINK]: (node) => {
+				if (node.data.uri.indexOf('youtube.com') !== -1) {
+					return (
+						<div>
+							<iframe
+								id="ytplayer"
+								src={node.data.uri}
+								type="text/html"
+								width="640"
+								height="360"
+								frameBorder="0"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
+							/>
+						</div>
+					);
+				} else
+					return (
+						<a
+							href=""
+							target={`${node.data.uri.startsWith(website_url) ? '_self' : '_blank'}`}
+							rel={`${node.data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
+						>
+							{node.content[0].value}
+						</a>
+					);
+			}
+		}
+	};
+
 	console.log(post);
-	return <div>{documentToReactComponents(post[0].fields.content)}</div>;
+	console.log(alt);
+	return (
+		<S.Section>
+			<BackgroundImage src={`https:${url}`} title={title} />
+			<h1>{title}</h1>
+
+			{documentToReactComponents(content, options)}
+		</S.Section>
+	);
 };
 
 export default recipe;
