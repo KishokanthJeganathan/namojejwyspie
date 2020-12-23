@@ -34,6 +34,7 @@ export async function getStaticProps({ params }) {
 }
 
 const recipe = ({ post }) => {
+	if (!post) return <div>404</div>;
 	const {
 		content,
 		date,
