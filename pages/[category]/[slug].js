@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 	return {
 		paths: data.items.map((path) => ({
-			params: { category: path.sys.contentType.sys.id, slug: `${data ? path.fields.slug : ''}` }
+			params: { category: path.sys.contentType.sys.id, slug: path.fields.slug }
 		})),
 		fallback: false
 	};
@@ -84,7 +84,6 @@ const recipe = ({ post }) => {
 	return (
 		<S.Section>
 			<BackgroundImage src={`https:${url}`} title={title} />
-			<h1>{title}</h1>
 
 			{documentToReactComponents(content, options)}
 		</S.Section>
