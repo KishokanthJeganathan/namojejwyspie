@@ -1,4 +1,5 @@
 import React from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -28,7 +29,8 @@ export async function getStaticProps({ params }) {
 }
 
 const recipe = ({ post }) => {
-	return <div>I am recipe page</div>;
+	console.log(post);
+	return <div>{documentToReactComponents(post[0].fields.content)}</div>;
 };
 
 export default recipe;
