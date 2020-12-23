@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 		paths: data.items.map((path) => ({
 			params: { category: path.sys.contentType.sys.id }
 		})),
-		fallback: false
+		fallback: true
 	};
 }
 
@@ -23,7 +23,8 @@ export async function getStaticProps({ params }) {
 	});
 
 	return {
-		props: { posts: data.items }
+		props: { posts: data.items },
+		revalidate: 1
 	};
 }
 

@@ -17,9 +17,9 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			latest: latest.items,
-			revalidate: 1
-		}
+			latest: latest.items
+		},
+		revalidate: 1
 	};
 }
 const index = ({ latest }) => {
