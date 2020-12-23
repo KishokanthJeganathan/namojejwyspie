@@ -3,9 +3,6 @@ import BackgroundImage from '../components/globals/backgroundImage/BackgroundIma
 import RecipeGroup from '../components/globals/recipeGroup/RecipeGroup';
 import Newsletter from '../components/globals/newsletter/Newsletter';
 import Latest from '../components/homepage/latest/Latest';
-import InstagramCarousal from '../components/homepage/instagram/InstagramCarousal';
-
-const userInstagram = require('user-instagram');
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -20,8 +17,6 @@ export async function getStaticProps() {
 
 	const about = await client.getEntry('6cavwsUEt3zmpvL1rbMxyZ');
 
-	const insta = await userInstagram('namojejwyspie');
-
 	return {
 		props: {
 			latest: latest.items,
@@ -30,7 +25,7 @@ export async function getStaticProps() {
 		}
 	};
 }
-const index = ({ latest, about, insta }) => {
+const index = ({ latest, about }) => {
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />

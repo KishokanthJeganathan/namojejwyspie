@@ -17,7 +17,6 @@
     "react-spring": "^8.0.27",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "user-instagram": "^2.1.9",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
