@@ -17,6 +17,16 @@ export async function getStaticPaths() {
 	};
 }
 
+export async function getStaticProps({ params }) {
+	let data = await client.getEntries({
+		content_type: params.category
+	});
+
+	return {
+		props: { posts: data.items }
+	};
+}
+
 const Index = ({ posts }) => {
 	if (!posts) return <div>404</div>;
 
@@ -31,22 +41,5 @@ const Index = ({ posts }) => {
 		</React.Fragment>
 	);
 };
-
-export async function getStaticProps({ params }) {
-	let data = await client.getEntries({
-		content_type: params.category
-	});
-
-	if (!data) {
-		return {
-			notFound: true
-		};
-	}
-
-	return {
-		props: { posts: data.items },
-		revalidate: 1
-	};
-}
 
 export default Index;
