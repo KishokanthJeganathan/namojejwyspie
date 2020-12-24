@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 		paths: data.items.map((path) => ({
 			params: { category: path.sys.contentType.sys.id, slug: path.fields.slug }
 		})),
-		fallback: true
+		fallback: false
 	};
 }
 
@@ -33,7 +33,6 @@ export async function getStaticProps({ params }) {
 }
 
 const Recipe = ({ post }) => {
-	if (!post) return <div>404</div>;
 	const {
 		content,
 		date,

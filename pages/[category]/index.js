@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 		paths: data.items.map((path) => ({
 			params: { category: path.sys.contentType.sys.id }
 		})),
-		fallback: true
+		fallback: false
 	};
 }
 
@@ -28,8 +28,6 @@ export async function getStaticProps({ params }) {
 }
 
 const Index = ({ posts }) => {
-	if (!posts) return <div>404</div>;
-
 	return (
 		<React.Fragment>
 			<BackgroundImage
