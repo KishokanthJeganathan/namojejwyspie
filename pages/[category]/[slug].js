@@ -27,6 +27,12 @@ export async function getStaticProps({ params }) {
 		'fields.slug': params.slug
 	});
 
+	if (!data) {
+		return {
+			notFound: true
+		};
+	}
+
 	return {
 		props: { post: data.items },
 		revalidate: 1

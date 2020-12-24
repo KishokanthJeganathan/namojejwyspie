@@ -15,6 +15,12 @@ export async function getStaticProps() {
 		content_type: 'mains'
 	});
 
+	if (!data) {
+		return {
+			notFound: true
+		};
+	}
+
 	return {
 		props: {
 			latest: latest.items

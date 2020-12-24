@@ -37,6 +37,12 @@ export async function getStaticProps({ params }) {
 		content_type: params.category
 	});
 
+	if (!data) {
+		return {
+			notFound: true
+		};
+	}
+
 	return {
 		props: { posts: data.items },
 		revalidate: 1
