@@ -16,7 +16,7 @@ const Navbar = () => {
 				<Image src="/logo.png" alt="Picture of the author" width={130} height={80} />
 				<span>
 					<strong>
-						<S.Name>Namojej Wyspie</S.Name>
+						<S.Name>Na Mojej Wyspie</S.Name>
 					</strong>
 
 					<S.Tagline>O Sri Lance - kuchni, historii, podrożach</S.Tagline>

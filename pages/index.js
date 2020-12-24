@@ -15,14 +15,32 @@ export async function getStaticProps() {
 		content_type: 'mains'
 	});
 
+	const mains = await client.getEntries({
+		limit: 4,
+		content_type: 'mains'
+	});
+
+	const deserts = await client.getEntries({
+		limit: 4,
+		content_type: 'deserts'
+	});
+
+	const drinks = await client.getEntries({
+		limit: 4,
+		content_type: 'drinks'
+	});
+
 	return {
 		props: {
-			latest: latest.items
+			latest: latest.items,
+			mains: mains.items,
+			deserts: deserts.items,
+			drinks: drinks.items
 		}
 	};
 }
 
-const Index = ({ latest }) => {
+const Index = ({ latest, mains, deserts, drinks }) => {
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />
@@ -32,19 +50,19 @@ const Index = ({ latest }) => {
 				title="Is Sri Lankan cuisine different from Indian cuisine?"
 				subtitle="Yes! Very much so and that is why I dedicated an entire article to talk how unique it is!"
 			/>
-			<Latest data={latest} slug="mains" />
+			<Latest data={mains} slug="mains" />
 			<BackgroundImage
 				src="/ingridients.jpg"
 				title="Looking for a place to buy the ingridients for Sri Lankan dishes in Poland?"
 				subtitle="You are in luck because I have a post dedicated only for this!"
 			/>
-			<RecipeGroup data={latest} fr="4" title="WHAT THE SRI LANKANS HAVE FOR DESERT" slug="deserts" />
+			<RecipeGroup data={deserts} fr="4" title="WHAT THE SRI LANKANS HAVE FOR DESERT" slug="deserts" />
 			<BackgroundImage
 				src="/island.jpeg"
 				title="Thinking of visiting Sri Lanka and not sure where to start?"
 				subtitle="I bothered my boyfriend untill he gave me his version of the best things to do in Sri Lanka for a 2 weeks"
 			/>
-			<RecipeGroup data={latest} fr="4" title="EVERYDAY SRI LANKAN DRINKS" slug="drinks" />
+			<RecipeGroup data={drinks} fr="4" title="EVERYDAY SRI LANKAN DRINKS" slug="drinks" />
 		</React.Fragment>
 	);
 };
