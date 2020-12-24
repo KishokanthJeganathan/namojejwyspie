@@ -29,7 +29,7 @@ export async function getStaticProps({ params }) {
 }
 
 const index = ({ posts }) => {
-	if (!post) return <div>404</div>;
+	if (!posts) return <div>404</div>;
 
 	return (
 		<React.Fragment>
