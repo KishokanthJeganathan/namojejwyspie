@@ -21,18 +21,6 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps({ params }) {
-	let data = await client.getEntries({
-		content_type: params.category,
-		'fields.slug': params.slug
-	});
-
-	return {
-		props: { post: data.items },
-		revalidate: 1
-	};
-}
-
 const recipe = ({ post }) => {
 	if (!post) return <div>404</div>;
 	const {
@@ -98,5 +86,17 @@ const recipe = ({ post }) => {
 		</S.Section>
 	);
 };
+
+export async function getStaticProps({ params }) {
+	let data = await client.getEntries({
+		content_type: params.category,
+		'fields.slug': params.slug
+	});
+
+	return {
+		props: { post: data.items },
+		revalidate: 1
+	};
+}
 
 export default recipe;

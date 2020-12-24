@@ -9,19 +9,6 @@ const client = require('contentful').createClient({
 	accessToken: 'eq9wMNqM3KEyfjI4GXJf9BXIsapjQewWTb_mBH58yY0'
 });
 
-export async function getStaticProps() {
-	const latest = await client.getEntries({
-		limit: 4,
-		order: 'sys.createdAt'
-	});
-
-	return {
-		props: {
-			latest: latest.items
-		},
-		revalidate: 1
-	};
-}
 const index = ({ latest }) => {
 	return (
 		<React.Fragment>
@@ -48,5 +35,19 @@ const index = ({ latest }) => {
 		</React.Fragment>
 	);
 };
+
+export async function getStaticProps() {
+	const latest = await client.getEntries({
+		limit: 4,
+		order: 'sys.createdAt'
+	});
+
+	return {
+		props: {
+			latest: latest.items
+		},
+		revalidate: 1
+	};
+}
 
 export default index;
