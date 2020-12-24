@@ -21,7 +21,7 @@ const OpenNavBar = ({ toggle, toggleHandler }) => {
 				bottom: '0',
 				left: '0',
 				right: '0',
-				zIndex: '1',
+				zIndex: '2',
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center'

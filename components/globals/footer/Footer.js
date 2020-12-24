@@ -21,7 +21,7 @@ const Footer = () => {
 			<S.Menu>
 				<ul>
 					{NavigationLinks.map((link) => (
-						<Link href="">
+						<Link href={link.link}>
 							<S.LinkContent>{link.destination}</S.LinkContent>
 						</Link>
 					))}

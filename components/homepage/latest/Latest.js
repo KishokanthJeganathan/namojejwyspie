@@ -10,18 +10,21 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 
 export const SectionWrapper = styled.section`padding: 1rem;`;
 
-const Latest = ({ data, slug }) => {
+const Latest = ({ data, slug, title }) => {
+	console.log(data);
 	return (
 		<SectionWrapper>
 			<About />
-			<h2>MAINS SRI LANKANS LOVE TO EAT EVERYDAY</h2>
+			<h2>{title}</h2>
 			{data.map((item) => (
 				<ExtendedRecipeItem
 					key={uuidv4()}
 					title={item.fields.title}
 					src={`https://${item.fields.mainImage.fields.file.url}`}
 					alt={item.fields.mainImage.fields.file.fileName}
-					slug={`/${item.fields.type}/${item.fields.slug}`}
+					slug={`/${item.sys.contentType.sys.id}/${item.fields.slug}`}
+					content={item.fields.metaDescription}
+					category={item.sys.contentType.sys.id}
 				/>
 			))}
 			<Link href={slug}>

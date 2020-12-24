@@ -28,12 +28,13 @@ export async function getStaticProps({ params }) {
 }
 
 const Index = ({ posts }) => {
+	console.log(posts);
 	return (
 		<React.Fragment>
 			<BackgroundImage
-				src="/ingridients.jpg"
-				title="Looking for a place to buy the ingridients for Sri Lankan dishes in Poland?"
-				subtitle="You are in luck because I have a post dedicated only for this!"
+				src={`https:${posts[0].fields.mainImage.fields.file.url}`}
+				title="POSZUKUJESZ CODZIENNIE JEŚĆ I PIĆ JAK SRI LANKANS?"
+				subtitle="JESTEŚ W ODPOWIEDNIM MIEJSCU!"
 			/>
 			<RecipeGroup data={posts} fr="4" />
 		</React.Fragment>

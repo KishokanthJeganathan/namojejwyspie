@@ -12,7 +12,7 @@ const client = require('contentful').createClient({
 export async function getStaticProps() {
 	const latest = await client.getEntries({
 		limit: 4,
-		content_type: 'mains'
+		order: 'sys.createdAt'
 	});
 
 	const mains = await client.getEntries({
@@ -46,23 +46,26 @@ const Index = ({ latest, mains, deserts, drinks }) => {
 			<RecipeGroup data={latest} fr="4" />
 			<Newsletter />
 			<BackgroundImage
+				slug="/"
 				src="/food.jpg"
-				title="Is Sri Lankan cuisine different from Indian cuisine?"
-				subtitle="Yes! Very much so and that is why I dedicated an entire article to talk how unique it is!"
+				title="Czy kuchnia Sri Lanki różni się od kuchni indyjskiej?"
+				subtitle="Tak! Bardzo i dlatego poświęciłem cały artykuł, aby opowiedzieć o jego wyjątkowości!"
 			/>
-			<Latest data={mains} slug="mains" />
+			<Latest data={mains} slug="mains" title="MAINS SRI LANKANS KOCHAJĄ CODZIENNIE JEŚĆ" />
 			<BackgroundImage
+				slug="/"
 				src="/ingridients.jpg"
-				title="Looking for a place to buy the ingridients for Sri Lankan dishes in Poland?"
-				subtitle="You are in luck because I have a post dedicated only for this!"
+				title="Szukasz miejsca na zakup składników do dań ze Sri Lanki w Polsce?"
+				subtitle="Masz szczęście, bo mam post poświęcony tylko temu!"
 			/>
-			<RecipeGroup data={deserts} fr="4" title="WHAT THE SRI LANKANS HAVE FOR DESERT" slug="deserts" />
+			<RecipeGroup data={deserts} fr="4" title="CO SRI LANKANIE MAJĄ NA PUSTYNIĘ" slug="deserts" />
 			<BackgroundImage
+				slug="/"
 				src="/island.jpeg"
-				title="Thinking of visiting Sri Lanka and not sure where to start?"
-				subtitle="I bothered my boyfriend untill he gave me his version of the best things to do in Sri Lanka for a 2 weeks"
+				title="Myślisz o wizycie na Sri Lance i nie wiesz, od czego zacząć?"
+				subtitle="Martwiłem się moim chłopakiem, dopóki nie dał mi swojej wersji najlepszych rzeczy do zrobienia na Sri Lance przez 2 tygodnie"
 			/>
-			<RecipeGroup data={drinks} fr="4" title="EVERYDAY SRI LANKAN DRINKS" slug="drinks" />
+			<RecipeGroup data={drinks} fr="4" title="CODZIENNE NAPOJE SRI LANKAN" slug="drinks" />
 		</React.Fragment>
 	);
 };

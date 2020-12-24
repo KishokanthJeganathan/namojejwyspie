@@ -59,9 +59,13 @@ export const LinkContent = styled.a`
 	${media.small`display:inline;
 	padding-right:0.5rem;
 	
+	
 	`};
 
 	${media.tablet`display: block;`};
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 export const About = styled.div`

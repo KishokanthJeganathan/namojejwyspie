@@ -46,7 +46,7 @@ const Recipe = ({ post }) => {
 			[MARKS.BOLD]: (text) => <strong>{text}</strong>
 		},
 		renderNode: {
-			[BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+			[BLOCKS.PARAGRAPH]: (node, children) => <S.Paragraphs>{children}</S.Paragraphs>,
 			'embedded-asset-block': (node) => {
 				return (
 					<Image
