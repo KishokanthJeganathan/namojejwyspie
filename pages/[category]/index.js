@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 	};
 }
 
-const index = ({ posts }) => {
+const Index = ({ posts }) => {
 	if (!posts) return <div>404</div>;
 
 	return (
@@ -43,4 +43,4 @@ export async function getStaticProps({ params }) {
 	};
 }
 
-export default index;
+export default Index;

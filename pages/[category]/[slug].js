@@ -21,7 +21,19 @@ export async function getStaticPaths() {
 	};
 }
 
-const recipe = ({ post }) => {
+export async function getStaticProps({ params }) {
+	let data = await client.getEntries({
+		content_type: params.category,
+		'fields.slug': params.slug
+	});
+
+	return {
+		props: { post: data.items },
+		revalidate: 1
+	};
+}
+
+const Recipe = ({ post }) => {
 	if (!post) return <div>404</div>;
 	const {
 		content,
@@ -30,8 +42,6 @@ const recipe = ({ post }) => {
 		metaDescription,
 		title
 	} = post[0].fields;
-
-	console.log(post);
 
 	const options = {
 		renderMark: {
@@ -87,16 +97,4 @@ const recipe = ({ post }) => {
 	);
 };
 
-export async function getStaticProps({ params }) {
-	let data = await client.getEntries({
-		content_type: params.category,
-		'fields.slug': params.slug
-	});
-
-	return {
-		props: { post: data.items },
-		revalidate: 1
-	};
-}
-
-export default recipe;
+export default Recipe;
