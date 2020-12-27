@@ -2,7 +2,7 @@ import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import Image from 'next/image';
-import * as S from '../../components/recipePage/styles';
+import * as S from '../../components/slugPage/styles';
 import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
 import About from '../../components/homepage/about/About';
 
