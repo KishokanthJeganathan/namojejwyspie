@@ -52,36 +52,22 @@ const Recipe = ({ post }) => {
 					<Image
 						src={`https:${node.data.target.fields.file.url}`}
 						alt=""
+						layout="responsive"
 						width={node.data.target.fields.file.details.image.width}
 						height={node.data.target.fields.file.details.image.height}
 					/>
 				);
 			},
 			[INLINES.HYPERLINK]: (node) => {
-				if (node.data.uri.indexOf('youtube.com') !== -1) {
-					return (
-						<div>
-							<iframe
-								id="ytplayer"
-								src={node.data.uri}
-								type="text/html"
-								width="640"
-								height="360"
-								frameBorder="0"
-								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture ; fullscreen"
-							/>
-						</div>
-					);
-				} else
-					return (
-						<a
-							href=""
-							target={`${node.data.uri.startsWith(website_url) ? '_self' : '_blank'}`}
-							rel={`${node.data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
-						>
-							{node.content[0].value}
-						</a>
-					);
+				return (
+					<a
+						href=""
+						target={`${node.data.uri.startsWith(website_url) ? '_self' : '_blank'}`}
+						rel={`${node.data.uri.startsWith(website_url) ? '' : 'noopener noreferrer'}`}
+					>
+						{node.content[0].value}
+					</a>
+				);
 			}
 		}
 	};
