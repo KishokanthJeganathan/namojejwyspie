@@ -49,7 +49,6 @@ export async function getStaticProps({ params }) {
 }
 
 const Recipe = ({ post, popular, otherRecipes }) => {
-	console.log(otherRecipes);
 	if (!post) return <div>404</div>;
 
 	const {

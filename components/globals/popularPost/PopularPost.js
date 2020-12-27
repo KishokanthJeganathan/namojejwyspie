@@ -4,7 +4,6 @@ import React from 'react';
 import * as S from './styles';
 
 const PopularPost = ({ src, alt, title, slug }) => {
-	console.log(slug);
 	return (
 		<Link href={`/${slug}`}>
 			<a>

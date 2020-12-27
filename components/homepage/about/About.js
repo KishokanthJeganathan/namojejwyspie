@@ -27,7 +27,6 @@ const About = ({ popular }) => {
 						slug={post.fields.slug}
 					/>
 				))}
-				{console.log(popular)}
 			</S.PopularPosts>
 		</S.Aside>
 	);
