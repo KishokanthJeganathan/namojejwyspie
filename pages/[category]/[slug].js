@@ -14,7 +14,7 @@ const client = require('contentful').createClient({
 export async function getStaticPaths() {
 	let allData = await client.getEntries();
 
-	const cleanedData = await allData.items.filter(
+	const cleanedData = allData.items.filter(
 		(post) => post.sys.contentType.sys.id === 'mains' || 'deserts' || 'drinks' || 'ingridients'
 	);
 
@@ -45,6 +45,7 @@ export async function getStaticProps({ params }) {
 
 const Recipe = ({ post, popular }) => {
 	if (!post) return <div>404</div>;
+
 	const {
 		content,
 		date,
@@ -52,6 +53,8 @@ const Recipe = ({ post, popular }) => {
 		metaDescription,
 		title
 	} = post[0].fields;
+
+	console.log(post);
 
 	const website_url = 'namojejwyspie.vercel.app';
 
