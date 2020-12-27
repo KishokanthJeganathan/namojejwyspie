@@ -36,7 +36,8 @@ export async function getStaticProps() {
 			mains: mains.items,
 			deserts: deserts.items,
 			drinks: drinks.items
-		}
+		},
+		revalidate: 1
 	};
 }
 

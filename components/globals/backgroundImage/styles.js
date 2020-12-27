@@ -9,8 +9,7 @@ export const Relative = styled.section`
 `;
 
 export const ImageHolder = styled(Image)`
-position: absolute;
-
+ position: absolute;
   object-fit: cover;
   object-position: center;`;
 

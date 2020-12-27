@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { media } from '../../utils/helpers';
 
-export const Article = styled.article`
-h`;
+export const Article = styled.article``;
 
 export const Paragraphs = styled.p`padding: 0rem 1rem;`;
 
