@@ -10,9 +10,7 @@ const client = require('contentful').createClient({
 export async function getStaticPaths() {
 	let allData = await client.getEntries();
 
-	const cleanedData = await allData.items.filter(
-		(post) => post.sys.contentType.sys.id === 'mains' || 'deserts' || 'drinks' || 'ingridients'
-	);
+	const cleanedData = allData.items.filter((post) => post.sys.contentType.sys.id !== 'popular');
 	return {
 		paths: cleanedData.map((path) => ({
 			params: { category: path.sys.contentType.sys.id }

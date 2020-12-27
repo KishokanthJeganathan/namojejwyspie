@@ -35,19 +35,26 @@ export async function getStaticProps() {
 		content_type: 'popular'
 	});
 
+	const all = await client.getEntries();
+
 	return {
 		props: {
 			latest: latest.items,
 			mains: mains.items,
 			deserts: deserts.items,
 			drinks: drinks.items,
-			popular: popular.items
+			popular: popular.items,
+			all
 		},
 		revalidate: 1
 	};
 }
 
-const Index = ({ latest, mains, deserts, drinks, popular }) => {
+const Index = ({ latest, mains, deserts, drinks, popular, all }) => {
+	console.log(all);
+	const cleanedData = all.items.filter((post) => post.sys.contentType.sys.id !== 'popular');
+
+	console.log(cleanedData);
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />

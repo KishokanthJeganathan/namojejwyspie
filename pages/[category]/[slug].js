@@ -30,7 +30,7 @@ export async function getStaticProps({ params }) {
 		'fields.slug': params.slug
 	});
 
-	const popular = await client.getEntries({
+	let popular = await client.getEntries({
 		limit: 4,
 		content_type: 'popular'
 	});
