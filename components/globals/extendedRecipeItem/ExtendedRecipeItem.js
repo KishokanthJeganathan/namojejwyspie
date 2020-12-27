@@ -6,7 +6,6 @@ import { Button } from '../recipeItem/styles';
 
 const ExtendedRecipeItem = ({ title, src, alt, slug, padding, border, content, category }) => {
 	let newSrc = src.replace('https:////', 'https://');
-	console.log(newSrc);
 
 	return (
 		<S.Wrapper>

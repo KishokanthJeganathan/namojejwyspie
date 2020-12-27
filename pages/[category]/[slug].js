@@ -12,10 +12,14 @@ const client = require('contentful').createClient({
 });
 
 export async function getStaticPaths() {
-	let data = await client.getEntries();
+	let allData = await client.getEntries();
+
+	const cleanedData = await allData.items.filter(
+		(post) => post.sys.contentType.sys.id === 'mains' || 'deserts' || 'drinks' || 'ingridients'
+	);
 
 	return {
-		paths: data.items.map((path) => ({
+		paths: cleanedData.map((path) => ({
 			params: { category: path.sys.contentType.sys.id, slug: path.fields.slug }
 		})),
 		fallback: true
@@ -28,13 +32,18 @@ export async function getStaticProps({ params }) {
 		'fields.slug': params.slug
 	});
 
+	const popular = await client.getEntries({
+		limit: 4,
+		content_type: 'popular'
+	});
+
 	return {
-		props: { post: data.items },
+		props: { post: data.items, popular: popular.items },
 		revalidate: 1
 	};
 }
 
-const Recipe = ({ post }) => {
+const Recipe = ({ post, popular }) => {
 	if (!post) return <div>404</div>;
 	const {
 		content,
@@ -80,7 +89,7 @@ const Recipe = ({ post }) => {
 	return (
 		<S.Article>
 			<BackgroundImage src={`https:${url}`} title={title} />
-			<About />
+			<About popular={popular} />
 			<S.RichContent>{documentToReactComponents(content, options)}</S.RichContent>
 		</S.Article>
 	);

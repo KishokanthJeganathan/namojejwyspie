@@ -30,18 +30,26 @@ export async function getStaticProps() {
 		content_type: 'drinks'
 	});
 
+	const popular = await client.getEntries({
+		limit: 4,
+		content_type: 'popular'
+	});
+
 	return {
 		props: {
 			latest: latest.items,
 			mains: mains.items,
 			deserts: deserts.items,
-			drinks: drinks.items
+			drinks: drinks.items,
+			popular: popular.items
 		},
 		revalidate: 1
 	};
 }
 
-const Index = ({ latest, mains, deserts, drinks }) => {
+const Index = ({ latest, mains, deserts, drinks, popular }) => {
+	console.log(latest);
+
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />
@@ -52,7 +60,7 @@ const Index = ({ latest, mains, deserts, drinks }) => {
 				title="Czy kuchnia Sri Lanki różni się od kuchni indyjskiej?"
 				subtitle="Tak! Bardzo i dlatego poświęciłem cały artykuł, aby opowiedzieć o jego wyjątkowości!"
 			/>
-			<Latest data={mains} slug="mains" title="MAINS SRI LANKANS KOCHAJĄ CODZIENNIE JEŚĆ" />
+			<Latest data={mains} slug="mains" title="MAINS SRI LANKANS KOCHAJĄ CODZIENNIE JEŚĆ" popular={popular} />
 			<BackgroundImage
 				slug="/"
 				src="/ingridients.jpg"

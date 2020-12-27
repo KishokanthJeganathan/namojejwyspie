@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import * as S from './styles';
 import Link from 'next/link';
-import { Button } from '../../globals/recipeItem/styles';
+import PopularPost from '../../globals/popularPost/PopularPosts';
 
-const About = () => {
+const About = ({ popular }) => {
 	return (
 		<S.Aside>
 			<S.About>
@@ -17,14 +17,16 @@ const About = () => {
 				</p>
 			</S.About>
 
-			<S.BlogPost>
-				<Image src="/spices-in-sri-lanka (1).jpg" width={500} height={500} />
-				<h3>Looking for a place to buy Sri Lankan spices?</h3>
-				<p>I have summarised the most cost effective places for you to buy Sri Lankan ingridients in Poland</p>
-				<Link href="">
-					<Button>Read</Button>
-				</Link>
-			</S.BlogPost>
+			<S.PopularPosts>
+				<h3>Our most popular recipes</h3>
+				{popular.map((post) => (
+					<PopularPost
+						title={post.fields.title}
+						src={`https:${post.fields.image.fields.file.url}`}
+						alt={post.fields.image.fields.title}
+					/>
+				))}
+			</S.PopularPosts>
 		</S.Aside>
 	);
 };

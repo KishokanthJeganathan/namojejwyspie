@@ -8,9 +8,13 @@ const client = require('contentful').createClient({
 });
 
 export async function getStaticPaths() {
-	let data = await client.getEntries();
+	let allData = await client.getEntries();
+
+	const cleanedData = await allData.items.filter(
+		(post) => post.sys.contentType.sys.id === 'mains' || 'deserts' || 'drinks' || 'ingridients'
+	);
 	return {
-		paths: data.items.map((path) => ({
+		paths: cleanedData.map((path) => ({
 			params: { category: path.sys.contentType.sys.id }
 		})),
 		fallback: true
@@ -29,8 +33,6 @@ export async function getStaticProps({ params }) {
 }
 
 const Index = ({ posts }) => {
-	console.log(posts);
-
 	if (!posts) return <div>404</div>;
 	return (
 		<React.Fragment>
