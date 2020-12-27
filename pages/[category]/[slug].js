@@ -4,6 +4,7 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import Image from 'next/image';
 import * as S from '../../components/recipePage/styles';
 import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
+import About from '../../components/homepage/about/About';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -41,6 +42,8 @@ const Recipe = ({ post }) => {
 		title
 	} = post[0].fields;
 
+	const website_url = 'namojejwyspie.vercel.app';
+
 	const options = {
 		renderMark: {
 			[MARKS.BOLD]: (text) => <strong>{text}</strong>
@@ -73,11 +76,11 @@ const Recipe = ({ post }) => {
 	};
 
 	return (
-		<S.Section>
+		<S.Article>
 			<BackgroundImage src={`https:${url}`} title={title} />
-
-			{documentToReactComponents(content, options)}
-		</S.Section>
+			<About />
+			<S.RichContent>{documentToReactComponents(content, options)}</S.RichContent>
+		</S.Article>
 	);
 };
 

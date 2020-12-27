@@ -11,7 +11,7 @@ const BackgroundImage = ({ src, title, subtitle, slug }) => {
 				{title && (
 					<span>
 						<strong>
-							<p>{title}</p>
+							<h3>{title}</h3>
 						</strong>
 						<p>{subtitle}</p>
 						{slug && (
