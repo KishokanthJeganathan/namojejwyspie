@@ -51,7 +51,7 @@ const Index = ({ latest, mains, deserts, drinks, popular, all }) => {
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />
-			<Newsletter />
+			{/* <Newsletter /> */}
 			<BackgroundImage
 				slug="/"
 				src="/food.jpg"

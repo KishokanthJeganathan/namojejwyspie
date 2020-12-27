@@ -10,6 +10,11 @@ export const Aside = styled.aside`
 	${media.desktop`width: 23%;`};
 
 	border-left: 1px solid #d6d6d6;
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
 `;
 
 export const About = styled.div`margin-bottom: 2rem;`;

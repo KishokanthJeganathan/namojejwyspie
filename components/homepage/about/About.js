@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import * as S from './styles';
 import Link from 'next/link';
-import PopularPost from '../../globals/popularPost/PopularPosts';
+import PopularPost from '../../globals/popularPost/PopularPost';
 
 const About = ({ popular }) => {
 	return (
@@ -24,8 +24,10 @@ const About = ({ popular }) => {
 						title={post.fields.title}
 						src={`https:${post.fields.image.fields.file.url}`}
 						alt={post.fields.image.fields.title}
+						slug={post.fields.slug}
 					/>
 				))}
+				{console.log(popular)}
 			</S.PopularPosts>
 		</S.Aside>
 	);

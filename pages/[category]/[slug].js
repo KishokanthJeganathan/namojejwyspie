@@ -5,6 +5,7 @@ import Image from 'next/image';
 import * as S from '../../components/slugPage/styles';
 import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
 import About from '../../components/homepage/about/About';
+import Carousal from '../../components/globals/carousel/Carousal';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -35,13 +36,20 @@ export async function getStaticProps({ params }) {
 		content_type: 'popular'
 	});
 
+	const otherRecipes = await client.getEntries({
+		limit: 6,
+		content_type: params.category,
+		order: 'sys.createdAt'
+	});
+
 	return {
-		props: { post: data.items, popular: popular.items },
+		props: { post: data.items, popular: popular.items, otherRecipes: otherRecipes.items },
 		revalidate: 1
 	};
 }
 
-const Recipe = ({ post, popular }) => {
+const Recipe = ({ post, popular, otherRecipes }) => {
+	console.log(otherRecipes);
 	if (!post) return <div>404</div>;
 
 	const {
@@ -51,8 +59,6 @@ const Recipe = ({ post, popular }) => {
 		metaDescription,
 		title
 	} = post[0].fields;
-
-	console.log(post);
 
 	const website_url = 'namojejwyspie.vercel.app';
 
@@ -92,6 +98,7 @@ const Recipe = ({ post, popular }) => {
 			<BackgroundImage src={`https:${url}`} title={title} />
 			<About popular={popular} />
 			<S.RichContent>{documentToReactComponents(content, options)}</S.RichContent>
+			<Carousal otherRecipes={otherRecipes} />
 		</S.Article>
 	);
 };

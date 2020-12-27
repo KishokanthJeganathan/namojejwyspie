@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 	max-width: 100vw;
 	margin:auto;`}
 	${media.desktop`
-	max-width: 75vw;
+	max-width: 85vw;
 	margin:auto;`}
   }
 `;
