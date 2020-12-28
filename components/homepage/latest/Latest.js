@@ -3,7 +3,6 @@ import ExtendedRecipeItem from '../../globals/extendedRecipeItem/ExtendedRecipeI
 import About from '../about/About';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
-import RecipeGroup from '../../globals/recipeGroup/RecipeGroup';
 import Link from 'next/link';
 import { CTA } from '../../globals/recipeGroup/styles';
 import { IoIosArrowRoundForward } from 'react-icons/io';

@@ -3,6 +3,7 @@ import * as S from '../footer/styles';
 import Image from 'next/image';
 import NavigationLinks from '../constants/NavigationLinks';
 import Link from 'next/link';
+import { v4 as uuidv4 } from 'uuid';
 
 const Footer = () => {
 	return (
@@ -21,7 +22,7 @@ const Footer = () => {
 			<S.Menu>
 				<ul>
 					{NavigationLinks.map((link) => (
-						<Link href={link.link}>
+						<Link href={link.link} key={uuidv4()}>
 							<S.LinkContent>{link.destination}</S.LinkContent>
 						</Link>
 					))}

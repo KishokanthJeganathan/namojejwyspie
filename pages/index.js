@@ -47,11 +47,10 @@ export async function getStaticProps() {
 	};
 }
 
-const Index = ({ latest, mains, deserts, drinks, popular, all }) => {
+const Index = ({ latest, mains, deserts, drinks, popular }) => {
 	return (
 		<React.Fragment>
 			<RecipeGroup data={latest} fr="4" />
-			{/* <Newsletter /> */}
 			<BackgroundImage
 				slug="/"
 				src="/food.jpg"
@@ -66,13 +65,14 @@ const Index = ({ latest, mains, deserts, drinks, popular, all }) => {
 				subtitle="Masz szczęście, bo mam post poświęcony tylko temu!"
 			/>
 			<RecipeGroup data={deserts} fr="4" title="CO SRI LANKANIE MAJĄ NA PUSTYNIĘ" slug="deserts" />
+			<RecipeGroup data={drinks} fr="4" title="CODZIENNE NAPOJE SRI LANKAN" slug="drinks" />
 			<BackgroundImage
 				slug="/"
 				src="/island.jpeg"
 				title="Myślisz o wizycie na Sri Lance i nie wiesz, od czego zacząć?"
 				subtitle="Martwiłem się moim chłopakiem, dopóki nie dał mi swojej wersji najlepszych rzeczy do zrobienia na Sri Lance przez 2 tygodnie"
 			/>
-			<RecipeGroup data={drinks} fr="4" title="CODZIENNE NAPOJE SRI LANKAN" slug="drinks" />
+			<RecipeGroup data={drinks} fr="4" title="Składniki Sri Lanki używane codziennie" slug="ingridients" />
 		</React.Fragment>
 	);
 };

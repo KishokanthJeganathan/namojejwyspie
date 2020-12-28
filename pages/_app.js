@@ -6,7 +6,6 @@ import './_app.css';
 import { media } from '../utils/helpers';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap');
   body {
     margin: 0;
     padding: 0;
