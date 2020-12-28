@@ -34,13 +34,13 @@ export async function getStaticProps({ params }) {
 const Index = ({ posts }) => {
 	if (!posts) return <div>404</div>;
 
-	console.log(posts);
-
 	return (
 		<Layout
-			title={posts[0].sys.contentType.sys.id}
+			title={posts[0].sys.contentType.sys.id.toUpperCase()}
 			image={`https:${posts[0].fields.mainImage.fields.file.url}`}
 			slug={posts[0].sys.contentType.sys.id}
+			description={`Information about the ${posts[0].sys.contentType.sys
+				.id} Sri Lankans love and have on a daily basis`}
 		>
 			<BackgroundImage
 				src={`https:${posts[0].fields.mainImage.fields.file.url}`}
