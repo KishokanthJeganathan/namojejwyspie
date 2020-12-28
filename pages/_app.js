@@ -1,7 +1,5 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import React from 'react';
-import Navbar from '../components/globals/navbar/Navbar';
-import Footer from '../components/globals/footer/Footer';
 import './_app.css';
 import { media } from '../utils/helpers';
 
@@ -20,24 +18,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = {
-	colors: {
-		text: 'black',
-		background: 'white'
-	}
-};
-
 export default function App({ Component, pageProps }) {
 	return (
 		<React.Fragment>
 			<GlobalStyle />
-			<ThemeProvider theme={theme}>
-				<Navbar />
-				<main>
-					<Component {...pageProps} />
-				</main>
-				<Footer />
-			</ThemeProvider>
+			<Component {...pageProps} />
 		</React.Fragment>
 	);
 }

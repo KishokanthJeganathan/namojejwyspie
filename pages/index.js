@@ -2,6 +2,7 @@ import React from 'react';
 import BackgroundImage from '../components/globals/backgroundImage/BackgroundImage';
 import RecipeGroup from '../components/globals/recipeGroup/RecipeGroup';
 import Latest from '../components/homepage/latest/Latest';
+import Layout from '../components/globals/Layout';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -48,7 +49,7 @@ export async function getStaticProps() {
 
 const Index = ({ latest, mains, deserts, drinks, popular }) => {
 	return (
-		<React.Fragment>
+		<Layout title="hey" description="cool" image="/food.jpg" currentURL="hi">
 			<RecipeGroup data={latest} fr="4" />
 			<BackgroundImage
 				slug="/"
@@ -75,7 +76,7 @@ const Index = ({ latest, mains, deserts, drinks, popular }) => {
 				subtitle="Martwiłem się moim chłopakiem, dopóki nie dał mi swojej wersji najlepszych rzeczy do zrobienia na Sri Lance przez 2 tygodnie"
 			/>
 			<RecipeGroup data={drinks} fr="4" title="Składniki Sri Lanki używane codziennie" slug="ingridients" />
-		</React.Fragment>
+		</Layout>
 	);
 };
 
