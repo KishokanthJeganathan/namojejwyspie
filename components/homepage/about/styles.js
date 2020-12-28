@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { media } from '../../../utils/helpers';
 
 export const Aside = styled.aside`
-	padding: 1rem;
+	padding: 0rem 1rem;
 	float: right;
 
 	${media.small`display:none;`};

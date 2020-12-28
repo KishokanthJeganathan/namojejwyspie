@@ -2,11 +2,15 @@ import styled from 'styled-components';
 import { media, setPosition } from '../../../utils/helpers';
 
 export const SectionWrapper = styled.section`
-	h2 {
-		padding: 0rem 1rem;
-		margin: 0rem;
-	}
 	margin: 1.5rem 0rem;
+
+	${media.small`
+	h2 {margin: 1rem;}
+	`};
+
+	${media.desktop`
+	h2 {margin: 0rem;}
+	`};
 `;
 
 export const Content = styled.div`
@@ -29,7 +33,14 @@ export const Content = styled.div`
 `;
 
 export const CTA = styled.a`
-	padding: 0rem 1rem;
+	${media.small`
+	margin: 1rem
+	`};
+
+	${media.desktop`
+margin: 0rem
+	`};
+
 	display: flex;
 	align-items: center;
 	font-weight: bold;

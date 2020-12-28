@@ -1,7 +1,6 @@
 import React from 'react';
 import BackgroundImage from '../components/globals/backgroundImage/BackgroundImage';
 import RecipeGroup from '../components/globals/recipeGroup/RecipeGroup';
-import Newsletter from '../components/globals/newsletter/Newsletter';
 import Latest from '../components/homepage/latest/Latest';
 
 const client = require('contentful').createClient({

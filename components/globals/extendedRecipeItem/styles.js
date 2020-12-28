@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     h5{margin: 0rem;
 	margin-top: 1rem;`};
 
-	${media.phone`width: 65%;`};
+	${media.phone`width: 60%;`};
 
 	${media.tablet`
     grid-template-columns: 1.2fr 2fr;
