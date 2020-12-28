@@ -16,12 +16,9 @@ const Navbar = () => {
 			<Link href="/">
 				<a style={{ color: 'black', textDecoration: 'none' }}>
 					<S.LogoHolder>
-						<Image src="/logo.png" alt="Picture of the author" width={130} height={80} />
+						<Image src="/logo.png" alt="logo" width={130} height={80} />
 						<span>
-							<strong>
-								<S.Name>Na Mojej Wyspie</S.Name>
-							</strong>
-
+							<S.Name>Na Mojej Wyspie</S.Name>
 							<S.Tagline>O Sri Lance - kuchni, historii, podrożach</S.Tagline>
 						</span>
 					</S.LogoHolder>

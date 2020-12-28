@@ -11,7 +11,7 @@ const OpenNavBar = ({ toggle, toggleHandler }) => {
 		x: toggle ? 0 : 100
 	});
 	return (
-		<animated.div
+		<animated.nav
 			style={{
 				transform: x.interpolate((x) => `translate3d(${x * -1}%, 0,0)`),
 				position: 'fixed',
@@ -27,23 +27,21 @@ const OpenNavBar = ({ toggle, toggleHandler }) => {
 				alignItems: 'center'
 			}}
 		>
-			<nav>
-				<S.UL>
-					{NavigationLinks.map((link) => (
-						<li key={uuidv4()}>
-							<Link href={`/${link.link}`}>
-								<a onClick={() => toggleHandler(toggle)} style={{ marginTop: '3rem' }}>
-									{link.destination}
-								</a>
-							</Link>
-						</li>
-					))}
-					<li>
-						<AiOutlineClose onClick={() => toggleHandler(toggle)} style={{ marginTop: '3rem' }} />
+			<S.UL>
+				{NavigationLinks.map((link) => (
+					<li key={uuidv4()}>
+						<Link href={`/${link.link}`}>
+							<a onClick={() => toggleHandler(toggle)} style={{ marginTop: '3rem' }}>
+								{link.destination}
+							</a>
+						</Link>
 					</li>
-				</S.UL>
-			</nav>
-		</animated.div>
+				))}
+				<li>
+					<AiOutlineClose onClick={() => toggleHandler(toggle)} style={{ marginTop: '3rem' }} />
+				</li>
+			</S.UL>
+		</animated.nav>
 	);
 };
 

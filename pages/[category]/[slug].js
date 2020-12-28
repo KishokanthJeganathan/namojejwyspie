@@ -71,7 +71,7 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 				return (
 					<Image
 						src={`https:${node.data.target.fields.file.url}`}
-						alt=""
+						alt={node.data.target.fields.title}
 						layout="responsive"
 						width={node.data.target.fields.file.details.image.width}
 						height={node.data.target.fields.file.details.image.height}
@@ -95,9 +95,10 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 	return (
 		<S.Article>
 			<BackgroundImage src={`https:${url}`} title={title} />
+			<br />
 			<About popular={popular} />
 			<S.RichContent>{documentToReactComponents(content, options)}</S.RichContent>
-			<Carousal otherRecipes={otherRecipes} />
+			<Carousal otherRecipes={otherRecipes} padding="1rem" />
 		</S.Article>
 	);
 };

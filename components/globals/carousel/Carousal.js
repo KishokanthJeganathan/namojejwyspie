@@ -6,7 +6,7 @@ import RecipeItem from '../recipeItem/RecipeItem';
 import { v4 as uuidv4 } from 'uuid';
 import * as S from './styles';
 
-const Carousal = ({ otherRecipes }) => {
+const Carousal = ({ otherRecipes, padding }) => {
 	let settings = {
 		dots: true,
 		arrows: false,
@@ -53,6 +53,7 @@ const Carousal = ({ otherRecipes }) => {
 						src={`https:${item.fields.mainImage.fields.file.url}`}
 						alt={item.fields.mainImage.fields.file.fileName}
 						slug={`/${item.sys.contentType.sys.id}/${item.fields.slug}`}
+						padding={padding}
 					/>
 				))}
 			</Slider>

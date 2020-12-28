@@ -53,6 +53,7 @@ const Index = ({ latest, mains, deserts, drinks, popular }) => {
 			<BackgroundImage
 				slug="/"
 				src="/food.jpg"
+				alt="image of sri lankan food"
 				title="Czy kuchnia Sri Lanki różni się od kuchni indyjskiej?"
 				subtitle="Tak! Bardzo i dlatego poświęciłem cały artykuł, aby opowiedzieć o jego wyjątkowości!"
 			/>
@@ -60,6 +61,7 @@ const Index = ({ latest, mains, deserts, drinks, popular }) => {
 			<BackgroundImage
 				slug="/"
 				src="/ingridients.jpg"
+				alt="image of sri lankan ingridients for its cuisine"
 				title="Szukasz miejsca na zakup składników do dań ze Sri Lanki w Polsce?"
 				subtitle="Masz szczęście, bo mam post poświęcony tylko temu!"
 			/>
@@ -67,6 +69,7 @@ const Index = ({ latest, mains, deserts, drinks, popular }) => {
 			<RecipeGroup data={drinks} fr="4" title="CODZIENNE NAPOJE SRI LANKAN" slug="drinks" />
 			<BackgroundImage
 				slug="/"
+				alt="image of sri lankan beach"
 				src="/island.jpeg"
 				title="Myślisz o wizycie na Sri Lance i nie wiesz, od czego zacząć?"
 				subtitle="Martwiłem się moim chłopakiem, dopóki nie dał mi swojej wersji najlepszych rzeczy do zrobienia na Sri Lance przez 2 tygodnie"

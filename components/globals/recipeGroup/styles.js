@@ -9,7 +9,7 @@ export const SectionWrapper = styled.section`
 	`};
 
 	${media.desktop`
-	h2 {margin: 0rem;}
+	h2 {margin: 1rem 0rem;}
 	`};
 `;
 

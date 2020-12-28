@@ -9,7 +9,7 @@ const About = ({ popular }) => {
 	return (
 		<S.Aside>
 			<S.About>
-				<Image src="/about_image.jpg" width={500} height={500} />
+				<Image src="/about_image.jpg" alt="picture of michalina and kisho" width={500} height={500} />
 				<h3>About Me</h3>
 				<p>
 					Jestem Michalina i pisze bloga o Sri Lance. Mój chłopak pochodzi ze Sri Lanki i to dzieki niemu

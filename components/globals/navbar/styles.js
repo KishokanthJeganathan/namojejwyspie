@@ -3,7 +3,7 @@ import { media, setFontSize } from '../../../utils/helpers';
 
 export const Navbar = styled.header`
 	display: grid;
-	position: -webkit-sticky; /* Safari */
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	background-color: white;
@@ -15,9 +15,10 @@ export const Navbar = styled.header`
 	}
 
 	${media.small`
-    grid-template-columns: 3fr 1fr ;
+	grid-template-columns: 3fr 1fr ;
+	padding:0.5rem;
     p{margin:0rem};
-    padding:0.5rem;
+    ;
 `};
 
 	${media.tablet`

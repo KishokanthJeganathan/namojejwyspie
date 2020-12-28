@@ -9,7 +9,7 @@ const PopularPost = ({ src, alt, title, slug }) => {
 			<a>
 				<S.Wrapper>
 					<Image src={src} alt={alt} height={1200} width={1000} />
-					<p>{title}</p>
+					<h4>{title}</h4>
 				</S.Wrapper>
 			</a>
 		</Link>

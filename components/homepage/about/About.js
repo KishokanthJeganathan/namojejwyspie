@@ -8,8 +8,8 @@ const About = ({ popular }) => {
 	return (
 		<S.Aside>
 			<S.About>
-				<Image src="/about_image.jpg" width={500} height={500} />
-				<h3>About Me</h3>
+				<Image src="/about_image.jpg" alt="picture of michalina and kisho" width={500} height={500} />
+				<h2>About Me</h2>
 				<p>
 					Jestem Michalina i pisze bloga o Sri Lance. Mój chłopak pochodzi ze Sri Lanki i to dzieki niemu
 					zainteresowałam sie kulturą, kuchnią i historią tego kraju. Mieszkamy i pracujemy w Poznaniu. Ja na
@@ -18,7 +18,7 @@ const About = ({ popular }) => {
 			</S.About>
 
 			<S.PopularPosts>
-				<h3>Our most popular recipes</h3>
+				<h2>Most popular recipes</h2>
 				{popular.map((post) => (
 					<PopularPost
 						key={uuidv4()}

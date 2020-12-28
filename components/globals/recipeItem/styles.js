@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { media, setFontSize, setFontWeight } from '../../../utils/helpers';
 
-export const RecipeItemWrapper = styled.div`
+export const RecipeItemWrapper = styled.article`
 	h3 {
 		font-size: ${setFontSize.normal};
 		font-weight: ${setFontWeight.thin};
 	}
 
-	/* padding: ${({ padding }) => (padding ? padding : '1rem')}; */
+	padding: ${({ padding }) => (padding ? padding : '')};
 	border: ${({ border }) => (border ? border : '')};
 `;
 
