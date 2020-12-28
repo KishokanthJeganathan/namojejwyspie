@@ -97,8 +97,8 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 
 	return (
 		<Layout
-			title="hey"
-			description="cool"
+			title={title}
+			description={metaDescription}
 			image={`https:${url}`}
 			slug={`${post[0].sys.contentType.sys.id}/${slug}`}
 		>

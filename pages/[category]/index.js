@@ -34,10 +34,11 @@ export async function getStaticProps({ params }) {
 const Index = ({ posts }) => {
 	if (!posts) return <div>404</div>;
 
+	console.log(posts);
+
 	return (
 		<Layout
-			title="hey"
-			description="cool"
+			title={posts[0].sys.contentType.sys.id}
 			image={`https:${posts[0].fields.mainImage.fields.file.url}`}
 			slug={posts[0].sys.contentType.sys.id}
 		>

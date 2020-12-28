@@ -1,11 +1,11 @@
 export default {
-	originalTitle: 'Starter Blog',
+	originalTitle: 'Na Moje Wyspie',
 	currentURL: 'https://namojejwyspie-new.vercel.app',
 	author: {
-		name: 'Lee Robinson',
-		summary: 'who loves Next.js.'
+		name: 'Michalina'
 	},
-	originalDescription: 'A starter blog converting Gatsby -> Next.',
+	originalDescription:
+		'Blog on cuisine, history and everything you need to know about Sri Lanka written by a huge fan of Sri Lanka ',
 	social: {
 		twitter: 'leeerob'
 	},
