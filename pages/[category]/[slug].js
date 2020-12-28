@@ -100,7 +100,7 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 			title="hey"
 			description="cool"
 			image={`https:${url}`}
-			slug={`/${post[0].sys.environment.sys.id}/${slug}`}
+			slug={`${post[0].sys.environment.sys.id}/${slug}`}
 		>
 			<S.Article>
 				<BackgroundImage src={`https:${url}`} title={title} />
