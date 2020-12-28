@@ -43,7 +43,7 @@ export const Menu = styled.div`
     ul{padding:0rem}`};
 `;
 
-export const Name = styled.p`
+export const Name = styled.a`
 	font-weight: bold;
 	${media.small`
 font-size: ${setFontSize.smallTitle};
@@ -51,8 +51,9 @@ font-size: ${setFontSize.smallTitle};
     `};
 	${media.tablet`
     font-size: ${setFontSize.title};
+	`};
 
-    `};
+	cursor: pointer;
 `;
 
 export const LinkContent = styled.a`

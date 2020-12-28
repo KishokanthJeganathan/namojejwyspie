@@ -9,7 +9,9 @@ const Footer = () => {
 	return (
 		<S.FooterWrapper>
 			<span>
-				<S.Name>Namojej Wyspie</S.Name>
+				<Link href="/">
+					<S.Name>Namojej Wyspie</S.Name>
+				</Link>
 			</span>
 
 			<S.About>
