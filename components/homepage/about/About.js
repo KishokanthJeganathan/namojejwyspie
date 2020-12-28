@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import * as S from './styles';
-import Link from 'next/link';
 import PopularPost from '../../globals/popularPost/PopularPost';
+import { v4 as uuidv4 } from 'uuid';
 
 const About = ({ popular }) => {
 	return (
@@ -21,6 +21,7 @@ const About = ({ popular }) => {
 				<h3>Our most popular recipes</h3>
 				{popular.map((post) => (
 					<PopularPost
+						key={uuidv4()}
 						title={post.fields.title}
 						src={`https:${post.fields.image.fields.file.url}`}
 						alt={post.fields.image.fields.title}

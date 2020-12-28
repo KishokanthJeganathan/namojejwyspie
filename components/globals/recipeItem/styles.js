@@ -7,7 +7,7 @@ export const RecipeItemWrapper = styled.div`
 		font-weight: ${setFontWeight.thin};
 	}
 
-	padding: ${({ padding }) => (padding ? padding : '1rem')};
+	/* padding: ${({ padding }) => (padding ? padding : '1rem')}; */
 	border: ${({ border }) => (border ? border : '')};
 `;
 

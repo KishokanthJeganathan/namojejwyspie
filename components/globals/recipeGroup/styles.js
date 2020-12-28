@@ -7,19 +7,24 @@ export const SectionWrapper = styled.section`
 		margin: 0rem;
 	}
 	margin: 1.5rem 0rem;
-	padding-bottom: ${(props) => (props.padding ? '2rem' : '0rem')};
 `;
 
 export const Content = styled.div`
 	display: grid;
 	justify-content: center;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
+	column-gap: 2rem;
+	row-gap: 2rem;
 
 	${media.small`
 	grid-template-columns:1fr 1fr;
+	padding:0rem 1rem;
 	`};
 	${media.phone`
 	grid-template-columns: ${(props) => `repeat(${props.fr},1fr)`};
+	`};
+	${media.desktop`
+	padding:0rem ;
 	`};
 `;
 
