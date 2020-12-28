@@ -6,6 +6,7 @@ import * as S from '../../components/slugPage/styles';
 import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
 import About from '../../components/homepage/about/About';
 import Carousal from '../../components/globals/carousel/Carousal';
+import Layout from '../../components/globals/Layout';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -49,6 +50,7 @@ export async function getStaticProps({ params }) {
 }
 
 const Recipe = ({ post, popular, otherRecipes }) => {
+	console.log(post);
 	if (!post) return <div>404</div>;
 
 	const {
@@ -56,7 +58,8 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 		date,
 		mainImage: { fields: { file: { url }, title: alt } },
 		metaDescription,
-		title
+		title,
+		slug
 	} = post[0].fields;
 
 	const website_url = 'namojejwyspie.vercel.app';
@@ -93,13 +96,20 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 	};
 
 	return (
-		<S.Article>
-			<BackgroundImage src={`https:${url}`} title={title} />
-			<br />
-			<About popular={popular} />
-			<S.RichContent>{documentToReactComponents(content, options)}</S.RichContent>
-			<Carousal otherRecipes={otherRecipes} padding="1rem" />
-		</S.Article>
+		<Layout
+			title="hey"
+			description="cool"
+			image={`https:${url}`}
+			slug={`/${post[0].sys.environment.sys.id}/${slug}`}
+		>
+			<S.Article>
+				<BackgroundImage src={`https:${url}`} title={title} />
+				<br />
+				<About popular={popular} />
+				<S.RichContent>{documentToReactComponents(content, options)}</S.RichContent>
+				<Carousal otherRecipes={otherRecipes} padding="1rem" />
+			</S.Article>
+		</Layout>
 	);
 };
 

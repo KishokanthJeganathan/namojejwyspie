@@ -49,7 +49,7 @@ export async function getStaticProps() {
 
 const Index = ({ latest, mains, deserts, drinks, popular }) => {
 	return (
-		<Layout title="hey" description="cool" image="/food.jpg" currentURL="hi">
+		<Layout title="hey" description="cool" image="/food.jpg" slug="/">
 			<RecipeGroup data={latest} fr="4" />
 			<BackgroundImage
 				slug="/"

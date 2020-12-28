@@ -1,5 +1,6 @@
 import React from 'react';
 import BackgroundImage from '../../components/globals/backgroundImage/BackgroundImage';
+import Layout from '../../components/globals/Layout';
 import RecipeGroup from '../../components/globals/recipeGroup/RecipeGroup';
 
 const client = require('contentful').createClient({
@@ -32,15 +33,21 @@ export async function getStaticProps({ params }) {
 
 const Index = ({ posts }) => {
 	if (!posts) return <div>404</div>;
+
 	return (
-		<React.Fragment>
+		<Layout
+			title="hey"
+			description="cool"
+			image={`https:${posts[0].fields.mainImage.fields.file.url}`}
+			slug={posts[0].sys.contentType.sys.id}
+		>
 			<BackgroundImage
 				src={`https:${posts[0].fields.mainImage.fields.file.url}`}
 				title="POSZUKUJESZ CODZIENNIE JEŚĆ I PIĆ JAK SRI LANKANS?"
 				subtitle="JESTEŚ W ODPOWIEDNIM MIEJSCU!"
 			/>
 			<RecipeGroup data={posts} fr="4" />
-		</React.Fragment>
+		</Layout>
 	);
 };
 

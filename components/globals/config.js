@@ -1,5 +1,6 @@
 export default {
 	originalTitle: 'Starter Blog',
+	currentURL: 'https://namojejwyspie-new.vercel.app',
 	author: {
 		name: 'Lee Robinson',
 		summary: 'who loves Next.js.'
