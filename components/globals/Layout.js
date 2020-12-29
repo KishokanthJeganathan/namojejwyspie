@@ -4,10 +4,10 @@ import Navbar from './navbar/Navbar';
 import Head from 'next/head';
 import SEO from './SEO';
 
-const Layout = ({ children, title, description, image, slug }) => {
+const Layout = ({ children, title, description, image, slug, article }) => {
 	return (
 		<React.Fragment>
-			<SEO title={title} description={description} image={image} slug={slug} />
+			<SEO title={title} description={description} image={image} slug={slug} article={article} />
 			<Navbar />
 			<main>{children}</main>
 			<Footer />

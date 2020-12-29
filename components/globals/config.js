@@ -1,6 +1,7 @@
 export default {
 	originalTitle: 'Na Moje Wyspie',
 	currentURL: 'https://namojejwyspie-new.vercel.app',
+	originalImage: 'https://i.ibb.co/NtDBtQd/image-3.jpg',
 	author: {
 		name: 'Michalina'
 	},

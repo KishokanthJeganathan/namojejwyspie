@@ -101,6 +101,7 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 			description={metaDescription}
 			image={`https:${url}`}
 			slug={`${post[0].sys.contentType.sys.id}/${slug}`}
+			article="true"
 		>
 			<S.Article>
 				<BackgroundImage src={`https:${url}`} title={title} />
