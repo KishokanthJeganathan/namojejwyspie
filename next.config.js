@@ -5,5 +5,11 @@ module.exports = {
 	i18n: {
 		locales: [ 'pl' ],
 		defaultLocale: 'pl'
+	},
+	webpack: (config, { isServer }) => {
+		if (isServer) {
+			require('./src/utils/sitemap.js');
+		}
+		return config;
 	}
 };
