@@ -4,6 +4,7 @@ import Image from 'next/image';
 import NavigationLinks from '../constants/NavigationLinks';
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
+import AboutContent from '../constants/AboutContent';
 
 const Footer = () => {
 	return (
@@ -15,11 +16,7 @@ const Footer = () => {
 			</span>
 
 			<S.About>
-				<p>
-					Jestem Michalina i pisze bloga o Sri Lance. Mój chłopak pochodzi ze Sri Lanki i to dzieki niemu
-					zainteresowałam sie kulturą, kuchnią i historią tego kraju. Mieszkamy i pracujemy w Poznaniu. Ja na
-					co dzień pracuję w ochronie zdrowia, a blog prowadzę hobbystycznie
-				</p>
+				<p>{AboutContent[0].content}</p>
 			</S.About>
 			<S.Menu>
 				<ul>

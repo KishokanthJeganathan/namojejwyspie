@@ -3,18 +3,15 @@ import Image from 'next/image';
 import * as S from './styles';
 import PopularPost from '../../globals/popularPost/PopularPost';
 import { v4 as uuidv4 } from 'uuid';
+import AboutContent from '../../globals/constants/AboutContent';
 
 const About = ({ popular }) => {
 	return (
 		<S.Aside>
 			<S.About>
-				<Image src="/about_image.jpg" alt="picture of michalina and kisho" width={500} height={500} />
+				<Image src={AboutContent[0].image} alt="picture of michalina and kisho" width={500} height={500} />
 				<h2>About Me</h2>
-				<p>
-					Jestem Michalina i pisze bloga o Sri Lance. Mój chłopak pochodzi ze Sri Lanki i to dzieki niemu
-					zainteresowałam sie kulturą, kuchnią i historią tego kraju. Mieszkamy i pracujemy w Poznaniu. Ja na
-					co dzień pracuję w ochronie zdrowia, a blog prowadzę hobbystycznie
-				</p>
+				<p>{AboutContent[0].content}</p>
 			</S.About>
 
 			<S.PopularPosts>
