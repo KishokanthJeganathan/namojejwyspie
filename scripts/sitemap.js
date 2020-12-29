@@ -10,39 +10,39 @@ const client = require('contentful').createClient({
 	accessToken: 'eq9wMNqM3KEyfjI4GXJf9BXIsapjQewWTb_mBH58yY0'
 });
 
-const getAllPosts = async () => client.getEntries({ content_type: 'post' }).then((posts) => posts.items);
-(async function() {
-	/*
+const getAllPosts = async () =>
+	(async function() {
+		/*
     baseStaticPages string[] ['about.js', 'contact.js']
 
     Include all JS files in pages/ root directory.
     Exlcude index.js, underscored files, dynamic page templates, API folder.
   */
-	const baseStaticPages = await globby(
-		[ '**.js', '!_*.js', '!404.js', '!index.js', '![category]/[slug].js', '!api' ],
-		{ cwd: path.resolve(__dirname, '../pages') }
-	);
+		const baseStaticPages = await globby(
+			[ '**.js', '!_*.js', '!404.js', '!index.js', '![category]/[slug].js', '!api' ],
+			{ cwd: path.resolve(__dirname, '../pages') }
+		);
 
-	// staticPages string[] ['about', 'contact']
-	const staticPages = baseStaticPages.map((page) => page.split('.')[0]);
+		// staticPages string[] ['about', 'contact']
+		const staticPages = baseStaticPages.map((page) => page.split('.')[0]);
 
-	let allData = await client.getEntries();
+		let allData = await client.getEntries();
 
-	const cleanedData = allData.items.filter((post) => post.sys.contentType.sys.id !== 'popular');
-	const postSlugs = cleanedData.map((post) => `${post.sys.contentType.sys.id}/${post.fields.slug}`);
+		const cleanedData = allData.items.filter((post) => post.sys.contentType.sys.id !== 'popular');
+		const postSlugs = cleanedData.map((post) => `${post.sys.contentType.sys.id}/${post.fields.slug}`);
 
-	const sitemapStream = new SitemapStream({
-		hostname: 'https://sitemap-delta.vercel.app' // https://pauldavidpatterson.com
-	});
+		const sitemapStream = new SitemapStream({
+			hostname: 'https://sitemap-delta.vercel.app' // https://pauldavidpatterson.com
+		});
 
-	const links = [ ...postSlugs, ...staticPages, '/' ];
-	const linksStream = Readable.from(links).pipe(sitemapStream);
+		const links = [ ...postSlugs, ...staticPages, '/' ];
+		const linksStream = Readable.from(links).pipe(sitemapStream);
 
-	const xml = await streamToPromise(linksStream);
+		const xml = await streamToPromise(linksStream);
 
-	const publicFolderPath = path.resolve(__dirname, '../public/sitemap.xml');
+		const publicFolderPath = path.resolve(__dirname, '../public/sitemap.xml');
 
-	fs.writeFileSync(publicFolderPath, xml);
+		fs.writeFileSync(publicFolderPath, xml);
 
-	console.log('Generated and saved sitemap: /public/sitemap.xml');
-})();
+		console.log('Generated and saved sitemap: /public/sitemap.xml');
+	})();
