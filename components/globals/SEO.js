@@ -6,6 +6,8 @@ export default function SEO({ description, title, image, slug }) {
 
 	return (
 		<Head>
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<meta charSet="utf-8" />
 			<title>{`${title} | ${originalTitle}`}</title>
 			<meta name="description" content={`${description ? description : originalDescription}`} />
 			<meta property="og:type" content="website" />
