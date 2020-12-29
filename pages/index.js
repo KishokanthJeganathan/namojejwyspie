@@ -3,6 +3,7 @@ import BackgroundImage from '../components/globals/backgroundImage/BackgroundIma
 import RecipeGroup from '../components/globals/recipeGroup/RecipeGroup';
 import Latest from '../components/homepage/latest/Latest';
 import Layout from '../components/globals/Layout';
+import generateSitemap from '../lib/sitemap';
 
 const client = require('contentful').createClient({
 	space: 'bw95q4zgddfj',
@@ -10,6 +11,7 @@ const client = require('contentful').createClient({
 });
 
 export async function getStaticProps() {
+	await generateSitemap();
 	const latest = await client.getEntries({
 		limit: 4,
 		order: 'sys.createdAt'
