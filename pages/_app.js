@@ -9,12 +9,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
-	${media.small`
+	/* ${media.small`
 	max-width: 100vw;
 	margin:auto;`}
 	${media.desktop`
 	max-width: 85vw;
-	margin:auto;`}
+	margin:auto;`} */
   }
 `;
 
