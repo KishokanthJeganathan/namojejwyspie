@@ -5,8 +5,8 @@ import Latest from '../components/homepage/latest/Latest';
 import Layout from '../components/globals/Layout';
 
 const client = require('contentful').createClient({
-	space: 'bw95q4zgddfj',
-	accessToken: 'eq9wMNqM3KEyfjI4GXJf9BXIsapjQewWTb_mBH58yY0'
+	space: process.env.CONTENTFUL_SPACE,
+	accessToken: process.env.CONTENTFUL_TOKEN
 });
 
 export async function getStaticProps() {
