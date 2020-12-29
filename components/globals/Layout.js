@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from './footer/Footer';
 import Navbar from './navbar/Navbar';
-import Head from 'next/head';
 import SEO from './SEO';
 
 const Layout = ({ children, title, description, image, slug, article }) => {
