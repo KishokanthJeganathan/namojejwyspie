@@ -14,3 +14,8 @@ export const RichContent = styled.div`
 	${media.phone`width: 65%;`};
 	${media.desktop`width: 72%;`};
 `;
+
+export const ImageDescription = styled.p`
+	text-align: center;
+	font-style: italic;
+`;

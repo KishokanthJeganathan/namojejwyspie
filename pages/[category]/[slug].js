@@ -72,13 +72,16 @@ const Recipe = ({ post, popular, otherRecipes }) => {
 			[BLOCKS.PARAGRAPH]: (node, children) => <S.Paragraphs>{children}</S.Paragraphs>,
 			'embedded-asset-block': (node) => {
 				return (
-					<Image
-						src={`https:${node.data.target.fields.file.url}`}
-						alt={node.data.target.fields.title}
-						layout="responsive"
-						width={node.data.target.fields.file.details.image.width}
-						height={node.data.target.fields.file.details.image.height}
-					/>
+					<React.Fragment>
+						<Image
+							src={`https:${node.data.target.fields.file.url}`}
+							alt={node.data.target.fields.title}
+							layout="responsive"
+							width={node.data.target.fields.file.details.image.width}
+							height={node.data.target.fields.file.details.image.height}
+						/>
+						<S.ImageDescription>{node.data.target.fields.description}</S.ImageDescription>
+					</React.Fragment>
 				);
 			},
 			[INLINES.HYPERLINK]: (node) => {
