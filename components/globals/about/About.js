@@ -24,8 +24,8 @@ const About = ({ popular }) => {
 					<PopularPost
 						key={uuidv4()}
 						title={post.fields.title}
-						src={`https:${post.fields.image.fields.file.url}`}
-						alt={post.fields.image.fields.title}
+						src={`https:${post.fields.mainImage.fields.file.url}`}
+						alt={post.fields.mainImage.fields.title}
 						slug={post.fields.slug}
 					/>
 				))}

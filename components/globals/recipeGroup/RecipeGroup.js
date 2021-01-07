@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 
 const RecipeGroup = ({ title, data, slug, fr, padding }) => {
+	// console.log(data);
 	return (
 		<S.SectionWrapper padding={padding}>
 			{title && <h2>{title}</h2>}

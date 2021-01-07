@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import AboutContent from '../../globals/constants/AboutContent';
 
 const About = ({ popular }) => {
+	console.log(popular);
 	return (
 		<S.Aside>
 			<S.About>
@@ -20,8 +21,8 @@ const About = ({ popular }) => {
 					<PopularPost
 						key={uuidv4()}
 						title={post.fields.title}
-						src={`https:${post.fields.image.fields.file.url}`}
-						alt={post.fields.image.fields.title}
+						src={`https:${post.fields.mainImage.fields.file.url}`}
+						alt={post.fields.mainImage.fields.title}
 						slug={post.fields.slug}
 					/>
 				))}
